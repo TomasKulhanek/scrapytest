@@ -1,0 +1,14 @@
+<template>
+  <require from="../w3.css"></require>
+  <div class="w3-row">
+    <div repeat.for="property of properties" class="w3-padding w3-show-inline-block">
+            <div class="w3-card">
+              <a href="${property.url}" class="w3-button w3-hover-light-grey" style="word-wrap:break-word;white-space: inherit">
+                <img src="${property.image}" />                
+                <p class="w3-center w3-small"><span innerhtml.bind="property.title"></span></p>
+              </a>
+            </div>  
+      
+    </div>
+  </div>
+</template>
