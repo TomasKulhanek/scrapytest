@@ -1,0 +1,1 @@
+uvicorn scrapeserver:app --reload
