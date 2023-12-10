@@ -1,0 +1,1251 @@
+<html lang="cs" ng-app="sreality" ng-controller="MainCtrl" class="ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,minimal-ui">
+
+    <!--- Nastaveni meta pres JS a ne pres Angular, aby byla nastavena default hodnota pro agenty co nezvladaji PhantomJS --->
+    <title ng:bind-template="Byty na prodej • Sreality.cz" class="ng-binding">Byty na prodej • Sreality.cz</title>
+    <meta name="description" content="18435 realit v nabídce prodej bytů. Vyberte si novou nemovitost na sreality.cz s hledáním na mapě a velkými náhledy fotografií nabízených bytů.">
+    <meta property="og:title" content="Byty na prodej">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.sreality.cz/img/sreality-logo-og.png">
+    <meta property="og:description" content="18435 realit v nabídce prodej bytů. Vyberte si novou nemovitost na sreality.cz s hledáním na mapě a velkými náhledy fotografií nabízených bytů.">
+    <meta property="og:url" content="https://www.sreality.cz/hledani/prodej/byty">
+
+    <!-- ngIf: metaStatus.value --><meta ng-if="metaStatus.value" name="szn:status" content="200" class="ng-scope"><!-- end ngIf: metaStatus.value -->
+
+    <meta http-equiv="imagetoolbar" content="no">
+
+    <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/img/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icons/apple-touch-icon-57x57.png?3">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icons/apple-touch-icon-60x60.png?3">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icons/apple-touch-icon-72x72.png?3">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icons/apple-touch-icon-76x76.png?3">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icons/apple-touch-icon-114x114.png?3">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/apple-touch-icon-120x120.png?3">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icons/apple-touch-icon-144x144.png?3">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/apple-touch-icon-152x152.png?3">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-touch-icon-180x180.png?3">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="/img/icons/android-chrome-manifest.json">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="/img/icons/ms-icon-144x144.png">
+    <meta name="msapplication-config" content="/img/icons/browserconfig.xml">
+
+    <!-- ngIf: rss.url --><link rel="alternate" type="application/rss+xml" ng-href="/api/cs/v2/estates/rss?category_main_cb=1&amp;category_type_cb=1&amp;suggested_regionId=-1&amp;suggested_districtId=-1" ng-if="rss.url" class="ng-scope" href="/api/cs/v2/estates/rss?category_main_cb=1&amp;category_type_cb=1&amp;suggested_regionId=-1&amp;suggested_districtId=-1"><!-- end ngIf: rss.url -->
+    <!-- ngRepeat: lang in metaSeo.languages -->
+
+    <link rel="stylesheet" href="/css/all.css?3ab2a4b">
+
+    <!--- TODO - fix pro Ribbon, odstranit az si nacitani seno.js poresi reibbon --->
+    <script defer="defer" src="https://gacz.hit.gemius.pl/xgemius.js"></script><script src="https://notifikace.seznam.cz/seno.js"></script>
+
+    <!--[if lte IE 8]>
+        <script>
+            document.createElement("popover");
+            document.createElement("mortgage");
+            document.createElement("hp-signpost");
+            document.createElement("category-switcher");
+            document.createElement("feedback");
+            document.createElement("bottom");
+            document.createElement("graph");
+            document.createElement("panorama");
+            document.createElement("panorama-prev");
+            document.createElement("sphere-viewer");
+            document.createElement("sphere-viewer-prev");
+            document.createElement("save-filter");
+        </script>
+    <![endif]-->
+
+    <!-- CMP stub skript je jenom vybuildeny npm balicek @iabtcf/stub -->
+    <script src="https://h.seznam.cz/js/cmp2/cmp_stub.js" type="text/javascript"></script>
+
+    <!-- Statistiky -->
+    <script src="https://h.seznam.cz/js/dot-small.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        if (window.DOT) {
+            var dotCfg = {
+                service: "sreality",
+                lazyLoadingEnabled: true
+            };
+            DOT.cfg(dotCfg);
+        }
+    </script>
+
+    <script src="https://h.seznam.cz/js/cmp2/scmp.js" type="text/javascript"></script>
+
+    <!-- SSP Reklama -->
+    <script src="https://ssp.seznam.cz/static/js/ssp.js" type="text/javascript"></script>
+    <!-- Sklik retargeting -->
+    <script type="text/javascript" src="https://c.seznam.cz/js/rc.js"></script>
+
+    <script src="https://download.seznam.cz/prohlizec/sbrowser-promo/promo.js"></script>
+
+    <!-- Seznam player-->
+    <script src="//d53-a.sdn.cz/d_53/sl/13/loader.js"></script>
+
+    <!-- Seznam geo lokace -->
+    <script src="https://geo.seznam.cz/static/js/geo.js"></script>
+
+    <!-- Fetch polyfill	-->
+    <script nomodule="" src="/js/fetch.umd.js"></script>
+
+    <!-- KONFIGURACE -->
+    <script src="/js/conf/config.js?3ab2a4b"></script>
+
+    <script src="/js/maps.js?1"></script>
+    <script src="/js/new-src.js?3ab2a4b"></script>
+    <script src="/js/all.js?3ab2a4b"></script>
+
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=?_escaped_fragment_=" />
+    </noscript>
+    <!-- ngIf: metaSeo.showMetaFragment --><meta name="fragment" content="!" ng-if="metaSeo.showMetaFragment" class="ng-scope"><!-- end ngIf: metaSeo.showMetaFragment -->
+<script src="https://h.seznam.cz/js/dot-small.js"></script><script>const dieKeksName = 'qusnyQusny'; const caughtSomething = 'catchmeoutside'; 'use strict';(function(uvnr,ga){var mows=nrv,jnur=uvnr();while(!![]){try{var xtg=-parseInt(mows(0x94))/0x1*(parseInt(mows(0x95))/0x2)+-parseInt(mows(0x8d))/0x3*(-parseInt(mows(0x8e))/0x4)+-parseInt(mows(0x96))/0x5+-parseInt(mows(0x93))/0x6*(-parseInt(mows(0x8f))/0x7)+parseInt(mows(0x92))/0x8*(-parseInt(mows(0x90))/0x9)+parseInt(mows(0x8b))/0xa*(-parseInt(mows(0x91))/0xb)+parseInt(mows(0x8c))/0xc;if(xtg===ga)break;else jnur['push'](jnur['shift']());}catch(jmqy){jnur['push'](jnur['shift']());}}}(pt,0x3c271));function zmos(q_ym){'@babel/helpers - typeof';return typeof Symbol==='fu'+'nc'+'ti'+'on'&&typeof Symbol['it'+'er'+'at'+'or']==='sy'+'mb'+'ol'?zmos=function quyj(xgtp){return typeof xgtp;}:zmos=function evz(nujy){return nujy&&typeof Symbol==='fu'+'nc'+'ti'+'on'&&nujy['co'+'ns'+'tr'+'uc'+'to'+'r']===Symbol&&nujy!==Symbol['pr'+'ot'+'ot'+'yp'+'e']?'sy'+'mb'+'ol':typeof nujy;},zmos(q_ym);}function mq_z(nu,ez){return ev(nu)||rujn(nu,ez)||evoz(nu,ez)||zoem();}function zoem(){throw new TypeError('In'+'va'+'li'+'d\x20'+'at'+'te'+'mp'+'t\x20'+'to'+'\x20d'+'es'+'tr'+'uc'+'tu'+'re'+'\x20n'+'on'+'-i'+'te'+'ra'+'bl'+'e\x20'+'in'+'st'+'an'+'ce'+'.\x0a'+'In'+'\x20o'+'rd'+'er'+'\x20t'+'o\x20'+'be'+'\x20i'+'te'+'ra'+'bl'+'e,'+'\x20n'+'on'+'-a'+'rr'+'ay'+'\x20o'+'bj'+'ec'+'ts'+'\x20m'+'us'+'t\x20'+'ha'+'ve'+'\x20a'+'\x20['+'Sy'+'mb'+'ol'+'.i'+'te'+'ra'+'to'+'r]'+'()'+'\x20m'+'et'+'ho'+'d.');}function nrv(gptx,xptl){var xtpl=pt();return nrv=function(voez,nrve){voez=voez-0x8b;var zmos=xtpl[voez];return zmos;},nrv(gptx,xptl);}function evoz(voze,zmc_){if(!voze)return;if(typeof voze==='st'+'ri'+'ng')return lkpt(voze,zmc_);var gxpt=Object['pr'+'ot'+'ot'+'yp'+'e']['to'+'St'+'ri'+'ng']['ca'+'ll'](voze)['sl'+'ic'+'e'](0x8,-0x1);if(gxpt==='Ob'+'je'+'ct'&&voze['co'+'ns'+'tr'+'uc'+'to'+'r'])gxpt=voze['co'+'ns'+'tr'+'uc'+'to'+'r']['na'+'me'];if(gxpt==='Ma'+'p'||gxpt==='Se'+'t')return Array['fr'+'om'](voze);if(gxpt==='Ar'+'gu'+'me'+'nt'+'s'||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/['te'+'st'](gxpt))return lkpt(voze,zmc_);}function lkpt(c_zm,lskw){if(lskw==null||lskw>c_zm['le'+'ng'+'th'])lskw=c_zm['le'+'ng'+'th'];for(var lktp=0x0,ruvn=new Array(lskw);lktp<lskw;lktp++){ruvn[lktp]=c_zm[lktp];}return ruvn;}function rujn(mkws,qmyj){var eozm=mkws==null?null:typeof Symbol!=='un'+'de'+'fi'+'ne'+'d'&&mkws[Symbol['it'+'er'+'at'+'or']]||mkws['@@'+'it'+'er'+'at'+'or'];if(eozm==null)return;var xga=[],tpgx=!![],wksl=![],gtx,pwlk;try{for(eozm=eozm['ca'+'ll'](mkws);!(tpgx=(gtx=eozm['ne'+'xt']())['do'+'ne']);tpgx=!![]){xga['pu'+'sh'](gtx['va'+'lu'+'e']);if(qmyj&&xga['le'+'ng'+'th']===qmyj)break;}}catch(oz){wksl=!![],pwlk=oz;}finally{try{if(!tpgx&&eozm['re'+'tu'+'rn']!=null)eozm['re'+'tu'+'rn']();}finally{if(wksl)throw pwlk;}}return xga;}function ev(kplw){if(Array['is'+'Ar'+'ra'+'y'](kplw))return kplw;}function m_q(evr,skwl){for(var wkms=0x0;wkms<skwl['le'+'ng'+'th'];wkms++){var jyuq=skwl[wkms];jyuq['en'+'um'+'er'+'ab'+'le']=jyuq['en'+'um'+'er'+'ab'+'le']||![],jyuq['co'+'nf'+'ig'+'ur'+'ab'+'le']=!![];if('va'+'lu'+'e'in jyuq)jyuq['wr'+'it'+'ab'+'le']=!![];Object['de'+'fi'+'ne'+'Pr'+'op'+'er'+'ty'](evr,jyuq['ke'+'y'],jyuq);}}function uqjy(tpkl,sklw,y_qm){if(sklw)m_q(tpkl['pr'+'ot'+'ot'+'yp'+'e'],sklw);if(y_qm)m_q(tpkl,y_qm);return tpkl;}function mos(nvr,tx){if(typeof tx!=='fu'+'nc'+'ti'+'on'&&tx!==null)throw new TypeError('Su'+'pe'+'r\x20'+'ex'+'pr'+'es'+'si'+'on'+'\x20m'+'us'+'t\x20'+'ei'+'th'+'er'+'\x20b'+'e\x20'+'nu'+'ll'+'\x20o'+'r\x20'+'a\x20'+'fu'+'nc'+'ti'+'on');nvr['pr'+'ot'+'ot'+'yp'+'e']=Object['cr'+'ea'+'te'](tx&&tx['pr'+'ot'+'ot'+'yp'+'e'],{'constructor':{'value':nvr,'writable':!![],'configurable':!![]}});if(tx)m_(nvr,tx);}function m_(kpl,evzo){return m_=Object['se'+'tP'+'ro'+'to'+'ty'+'pe'+'Of']||function xpgt(veoz,lwsk){return veoz['__'+'pr'+'ot'+'o_'+'_']=lwsk,veoz;},m_(kpl,evzo);}function ptxg(rnvu){var yqj=juy();return function jrun(){var wks=wslk(rnvu),txpg;if(yqj){var rn=wslk(this)['co'+'ns'+'tr'+'uc'+'to'+'r'];txpg=Reflect['co'+'ns'+'tr'+'uc'+'t'](wks,arguments,rn);}else txpg=wks['ap'+'pl'+'y'](this,arguments);return sw(this,txpg);};}function sw(kwl,mjqy){if(mjqy&&(zmos(mjqy)==='ob'+'je'+'ct'||typeof mjqy==='fu'+'nc'+'ti'+'on'))return mjqy;else{if(mjqy!==void 0x0)throw new TypeError('De'+'ri'+'ve'+'d\x20'+'co'+'ns'+'tr'+'uc'+'to'+'rs'+'\x20m'+'ay'+'\x20o'+'nl'+'y\x20'+'re'+'tu'+'rn'+'\x20o'+'bj'+'ec'+'t\x20'+'or'+'\x20u'+'nd'+'ef'+'in'+'ed');}return jynu(kwl);}function jynu(axg){if(axg===void 0x0)throw new ReferenceError('th'+'is'+'\x20h'+'as'+'n\x27'+'t\x20'+'be'+'en'+'\x20i'+'ni'+'ti'+'al'+'is'+'ed'+'\x20-'+'\x20s'+'up'+'er'+'()'+'\x20h'+'as'+'n\x27'+'t\x20'+'be'+'en'+'\x20c'+'al'+'le'+'d');return axg;}function juy(){if(typeof Reflect==='un'+'de'+'fi'+'ne'+'d'||!Reflect['co'+'ns'+'tr'+'uc'+'t'])return![];if(Reflect['co'+'ns'+'tr'+'uc'+'t']['sh'+'am'])return![];if(typeof Proxy==='fu'+'nc'+'ti'+'on')return!![];try{return Boolean['pr'+'ot'+'ot'+'yp'+'e']['va'+'lu'+'eO'+'f']['ca'+'ll'](Reflect['co'+'ns'+'tr'+'uc'+'t'](Boolean,[],function(){})),!![];}catch(plxt){return![];}}function wslk(uyjq){return wslk=Object['se'+'tP'+'ro'+'to'+'ty'+'pe'+'Of']?Object['ge'+'tP'+'ro'+'to'+'ty'+'pe'+'Of']:function _mcz(ozev){return ozev['__'+'pr'+'ot'+'o_'+'_']||Object['ge'+'tP'+'ro'+'to'+'ty'+'pe'+'Of'](ozev);},wslk(uyjq);}function qmjy(jymq,slkw){if(!(jymq instanceof slkw))throw new TypeError('Ca'+'nn'+'ot'+'\x20c'+'al'+'l\x20'+'a\x20'+'cl'+'as'+'s\x20'+'as'+'\x20a'+'\x20f'+'un'+'ct'+'io'+'n');}function pt(){var zome=['652EELTsy','189WjHtym','9ttFrHX','518188gwMDJo','2062168dSLqDs','29676AeajGU','1lJUFAJ','971062WEJjaZ','1466460aNkaGc','40EZdKhH','10964916RGjJmx','7806buqzuv'];pt=function(){return zome;};return pt();}(function(){'use strict';;var _zm={};_zm['di'+'v']='wi'+'dt'+'h:'+'\x201'+'px'+'\x20!'+'im'+'po'+'rt'+'an'+'t;'+'\x0a\x09'+'\x09\x09'+'he'+'ig'+'ht'+':\x20'+'1p'+'x\x20'+'!i'+'mp'+'or'+'ta'+'nt'+';\x0a'+'\x09\x09'+'\x09p'+'os'+'it'+'io'+'n:'+'\x20a'+'bs'+'ol'+'ut'+'e\x20'+'!i'+'mp'+'or'+'ta'+'nt'+';\x0a'+'\x09\x09'+'\x09r'+'ig'+'ht'+':\x20'+'1p'+'x\x20'+'!i'+'mp'+'or'+'ta'+'nt'+';\x0a'+'\x09\x09'+'\x09t'+'op'+':\x20'+'1p'+'x\x20'+'!i'+'mp'+'or'+'ta'+'nt',_zm['im'+'g']='wi'+'dt'+'h:'+'\x201'+'px'+'\x20!'+'im'+'po'+'rt'+'an'+'t;'+'\x0a\x09'+'\x09\x09'+'he'+'ig'+'ht'+':\x20'+'1p'+'x\x20'+'!i'+'mp'+'or'+'ta'+'nt'+';\x0a'+'\x09\x09'+'\x09p'+'os'+'it'+'io'+'n:'+'\x20a'+'bs'+'ol'+'ut'+'e\x20'+'!i'+'mp'+'or'+'ta'+'nt'+';\x0a'+'\x09\x09'+'\x09r'+'ig'+'ht'+':\x20'+'1p'+'x\x20'+'!i'+'mp'+'or'+'ta'+'nt'+';\x0a'+'\x09\x09'+'\x09b'+'ot'+'to'+'m:'+'\x201'+'px'+'\x20!'+'im'+'po'+'rt'+'an'+'t;'+'\x0a\x09'+'\x09\x09'+'vi'+'si'+'bi'+'li'+'ty'+':\x20'+'hi'+'dd'+'en'+';';var zemo=_zm,qzm_=function wosm(xtgp){var ervz=xtgp['ta'+'gN'+'am'+'e']['to'+'Lo'+'we'+'rC'+'as'+'e'](),lkpw=ervz in zemo?zemo[ervz]:'';return xtgp['st'+'yl'+'e']['cs'+'sT'+'ex'+'t']+=lkpw,xtgp;},axtg=function ptl(){qmjy(this,ptl),this['lo'+'ad'+'ed']=![];},_mzc=function(ujrn){mos(ozsm,ujrn);var rev=ptxg(ozsm);function ozsm(mzc_){var qm_;return qmjy(this,ozsm),qm_=rev['ca'+'ll'](this),qm_['el'+'em'+'en'+'t']=qzm_(mzc_),qm_;}return uqjy(ozsm,[{'key':'ch'+'ec'+'kH'+'id'+'de'+'n','value':function wmso(urjn){return window['ge'+'tC'+'om'+'pu'+'te'+'dS'+'ty'+'le'](this['el'+'em'+'en'+'t'])['di'+'sp'+'la'+'y']['in'+'de'+'xO'+'f']('no'+'ne')===0x0;}},{'key':'in'+'se'+'rt'+'In'+'to'+'DO'+'M','value':function yjmq(){document['bo'+'dy']['ap'+'pe'+'nd'+'Ch'+'il'+'d'](this['el'+'em'+'en'+'t']);}},{'key':'de'+'le'+'te'+'Fr'+'om'+'DO'+'M','value':function mq(){document['bo'+'dy']['co'+'nt'+'ai'+'ns'](this['el'+'em'+'en'+'t'])&&this['el'+'em'+'en'+'t']['re'+'mo'+'ve']();}}]),ozsm;}(axtg),ltpx=function(mqjy){mos(somw,mqjy);var moz=ptxg(somw);function somw(agtx){var unjy;return qmjy(this,somw),unjy=moz['ca'+'ll'](this),unjy['el'+'em'+'en'+'t']=qzm_(agtx),unjy;}var zrve={};return zrve['ke'+'y']='ch'+'ec'+'kH'+'id'+'de'+'n',zrve['va'+'lu'+'e']=function cz(om){return om&&!this['lo'+'ad'+'ed'];},uqjy(somw,[zrve,{'key':'in'+'se'+'rt'+'In'+'to'+'DO'+'M','value':function zc(){var _zc=this;document['bo'+'dy']['ap'+'pe'+'nd'+'Ch'+'il'+'d'](this['el'+'em'+'en'+'t']);var mwsk='fi'+'sh'+'er';this['el'+'em'+'en'+'t']['on'+'lo'+'ad']=function(){var wpkl,ver;window['ad'+'dE'+'ve'+'nt'+'Li'+'st'+'en'+'er']('me'+'ss'+'ag'+'e',function(zmeo){zmeo['da'+'ta']===mwsk&&(_zc['lo'+'ad'+'ed']=!![]);}),(ver=(wpkl=_zc['el'+'em'+'en'+'t'])===null||wpkl===void 0x0?void 0x0:wpkl['co'+'nt'+'en'+'tW'+'in'+'do'+'w'])===null||ver===void 0x0?void 0x0:ver['po'+'st'+'Me'+'ss'+'ag'+'e'](mwsk,'*');};}},{'key':'de'+'le'+'te'+'Fr'+'om'+'DO'+'M','value':function verz(){document['bo'+'dy']['co'+'nt'+'ai'+'ns'](this['el'+'em'+'en'+'t'])&&this['el'+'em'+'en'+'t']['re'+'mo'+'ve']();}}]),somw;}(axtg),lpt=function(som){mos(mqy_,som);var _mz=ptxg(mqy_);function mqy_(){var lpkt,qujy=arguments['le'+'ng'+'th']>0x0&&arguments[0x0]!==undefined?arguments[0x0]:'/',gxtp=arguments['le'+'ng'+'th']>0x1?arguments[0x1]:undefined;qmjy(this,mqy_),lpkt=_mz['ca'+'ll'](this),lpkt['ur'+'l']=qujy,lpkt['bl'+'oc'+'ke'+'d']=![];var omzs=new XMLHttpRequest();return omzs['op'+'en']('GE'+'T',qujy),gxtp&&omzs['se'+'tR'+'eq'+'ue'+'st'+'He'+'ad'+'er']('Co'+'nt'+'en'+'t-'+'Ty'+'pe',gxtp),lpkt['ta'+'rg'+'et']=omzs,lpkt;}var owsm={};return owsm['ke'+'y']='de'+'le'+'te'+'Fr'+'om'+'DO'+'M',owsm['va'+'lu'+'e']=function uyj(){},uqjy(mqy_,[{'key':'in'+'se'+'rt'+'In'+'to'+'DO'+'M','value':function jy(){var swk=this;this['ta'+'rg'+'et']['on'+'er'+'ro'+'r']=function(myqj){myqj['ta'+'rg'+'et']['st'+'at'+'us'+'Te'+'xt']===''&&myqj['ta'+'rg'+'et']['st'+'at'+'us']===0x0&&myqj['ta'+'rg'+'et']['re'+'ad'+'yS'+'ta'+'te']===0x4&&(swk['bl'+'oc'+'ke'+'d']=!![]);},this['ta'+'rg'+'et']['on'+'lo'+'ad']=function(txga){txga['ta'+'rg'+'et']['re'+'sp'+'on'+'se'+'UR'+'L']!==''['co'+'nc'+'at'](window['lo'+'ca'+'ti'+'on']['or'+'ig'+'in'])['co'+'nc'+'at'](swk['ur'+'l'])&&txga['ta'+'rg'+'et']['re'+'sp'+'on'+'se'+'UR'+'L']!==''&&(swk['bl'+'oc'+'ke'+'d']=!![]);},this['ta'+'rg'+'et']['se'+'nd']();}},{'key':'ch'+'ec'+'kH'+'id'+'de'+'n','value':function zosm(rezv){return this['bl'+'oc'+'ke'+'d'];}},owsm]),mqy_;}(axtg),oezv=function kwls(cz_m,_zmc){var smkw=document['cr'+'ea'+'te'+'El'+'em'+'en'+'t'](cz_m);if(_zmc!=undefined)for(var qz_m=0x0,slwk=Object['en'+'tr'+'ie'+'s'](_zmc);qz_m<slwk['le'+'ng'+'th'];qz_m++){var rvnu=mq_z(slwk[qz_m],0x2),m_z=rvnu[0x0],nr=rvnu[0x1];smkw['se'+'tA'+'tt'+'ri'+'bu'+'te'](m_z,nr);}return smkw;},juqy=function erv(vzer){return{'baits':vzer,'id':''['co'+'nc'+'at'](Date['no'+'w']())['co'+'nc'+'at'](Math['fl'+'oo'+'r']((0x1+Math['ra'+'nd'+'om']())*Date['no'+'w']()))};},txpl=function lpwk(){var ynju={};ynju['cl'+'as'+'s']='ad'+'fo'+'rm'+'-a'+'db'+'ox'+'\x0a\x09'+'\x09a'+'dv'+'er'+'t-'+'sq'+'ua'+'re'+'\x0a\x09'+'\x09a'+'rt'+'ic'+'le'+'-a'+'dt'+'ip'+'-b'+'ox'+'\x0a\x09'+'\x09b'+'az'+'ar'+'-b'+'ox'+'\x0a\x09'+'\x09b'+'x-'+'le'+'ad'+'er'+'bo'+'ar'+'d\x0a'+'\x09\x09'+'et'+'ar'+'ge'+'t\x0a'+'\x09\x09'+'hp'+'-a'+'dv'+'er'+'t\x0a'+'\x09\x09'+'ic'+'0.'+'ve'+'nd'+'or'+'-l'+'is'+'t\x0a'+'\x09\x09'+'il'+'lu'+'st'+'ra'+'te'+'d.'+'il'+'lV'+'.a'+'rt'+'ic'+'le'+'.c'+'ol'+'um'+'ns'+'.c'+'ol'+'2\x0a'+'\x09\x09'+'jo'+'bs'+'cz'+'\x0a\x09'+'\x09p'+'op'+'is'+'re'+'kl'+'am'+'a\x0a'+'\x09\x09'+'pr'+'om'+'o-'+'in'+'-a'+'rt'+'ic'+'le'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'-3'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'-a'+'bm'+'ix'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'-b'+'ot'+'to'+'m\x0a'+'\x09\x09'+'re'+'kl'+'am'+'a-'+'bo'+'x\x0a'+'\x09\x09'+'re'+'kl'+'am'+'a-'+'le'+'ft'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'-l'+'is'+'ta'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'-m'+'eg'+'ab'+'oa'+'rd'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'-r'+'ig'+'ht'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'-t'+'op'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'Bo'+'tt'+'om'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'Ho'+'rn'+'iL'+'is'+'ta'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'Od'+'ka'+'zy'+'Ve'+'Ve'+'ta'+'ch'+'Do'+'le'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'_a'+'he'+'ad'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'_b'+'ox'+'_s'+'ta'+'nd'+'ar'+'d\x0a'+'\x09\x09'+'re'+'kl'+'am'+'a_'+'sq'+'ua'+'re'+'\x0a\x09'+'\x09r'+'ek'+'la'+'ma'+'_t'+'it'+'le'+'_f'+'la'+'t\x0a'+'\x09\x09'+'re'+'kl'+'am'+'ni'+'-u'+'p-'+'1\x0a'+'\x09\x09'+'re'+'kl'+'am'+'ni'+'-u'+'p-'+'2\x0a'+'\x09\x09'+'sk'+'li'+'k\x0a'+'\x09\x09'+'sk'+'li'+'k-'+'bl'+'oc'+'k\x0a'+'\x09\x09'+'sk'+'li'+'k-'+'bo'+'x\x0a'+'\x09\x09'+'sk'+'li'+'k_'+'le'+'ft'+'\x0a\x09'+'\x09s'+'kl'+'ik'+'_r'+'ig'+'ht'+'\x0a\x09'+'\x09s'+'po'+'re'+'d-'+'li'+'nk'+'s\x0a'+'\x09\x09'+'to'+'pr'+'ek'+'la'+'ma'+'\x0a\x09'+'\x09v'+'el'+'ke'+'_z'+'la'+'vy'+'\x0a\x09'+'\x09v'+'re'+'kl'+'am'+'a\x0a'+'\x09\x09'+'zl'+'av'+'y-'+'bo'+'x\x0a'+'\x09\x09'+'pu'+'b_'+'30'+'0x'+'25'+'0\x0a'+'\x09\x09'+'pu'+'b_'+'30'+'0x'+'25'+'0m'+'\x0a\x09'+'\x09p'+'ub'+'_7'+'28'+'x9'+'0\x0a'+'\x09\x09'+'sa'+'fe'+'fr'+'am'+'e\x0a'+'\x09\x09'+'te'+'xt'+'-a'+'d\x0a'+'\x09\x09'+'te'+'xt'+'Ad'+'\x0a\x09'+'\x09t'+'ex'+'t_'+'ad'+'\x0a\x09'+'\x09t'+'ex'+'t_'+'ad'+'s\x0a'+'\x09\x09'+'te'+'xt'+'-a'+'ds'+'\x0a\x09'+'\x09t'+'ex'+'t-'+'ad'+'-l'+'in'+'ks';var uynj=oezv('di'+'v',ynju),zc_m={};zc_m['sr'+'c']='/a'+'d_'+'ad'+'s_'+'ad'+'ve'+'rt'+'_a'+'dv'+'er'+'ti'+'se'+'me'+'nt'+'_a'+'df'+'or'+'m_'+'pu'+'b_'+'30'+'0x'+'25'+'0.'+'pn'+'g';var omz=oezv('im'+'g',zc_m);return juqy([new _mzc(uynj),new _mzc(omz),new lpt('/a'+'d_'+'ad'+'s_'+'ad'+'ve'+'rt'+'_a'+'dv'+'er'+'ti'+'se'+'me'+'nt'+'_a'+'df'+'or'+'m_'+'pu'+'b_'+'30'+'0x'+'25'+'0.'+'pn'+'g','im'+'ag'+'e/'+'pn'+'g')]);},kplt=function zve(lptx){lptx['ba'+'it'+'s']['fo'+'rE'+'ac'+'h'](function(oemz){oemz['de'+'le'+'te'+'Fr'+'om'+'DO'+'M']();}),lptx['ba'+'it'+'s']=[];},oze=function vren(cmz_){cmz_['ba'+'it'+'s']['fo'+'rE'+'ac'+'h'](function(zeov){return zeov['in'+'se'+'rt'+'In'+'to'+'DO'+'M']();});},evrn=function agx(skmw){var ujnr=arguments['le'+'ng'+'th']>0x1&&arguments[0x1]!==undefined?arguments[0x1]:![];return skmw['ba'+'it'+'s']['re'+'du'+'ce'](function(yuj,vern){return yuj||vern['ch'+'ec'+'kH'+'id'+'de'+'n'](ujnr);},![]);},vunr=function zvre(mksw){return new Date(Date['no'+'w']()+0x3e8*0x3c*0x3c*mksw)['to'+'UT'+'CS'+'tr'+'in'+'g']();},kmsw=function qjyu(kws,qy){var lpk=location['pr'+'ot'+'oc'+'ol']==='ht'+'tp'+'s:'?'\x20S'+'am'+'eS'+'it'+'e='+'No'+'ne'+';\x20'+'Se'+'cu'+'re'+';':'';document['co'+'ok'+'ie']=''['co'+'nc'+'at'](kws,'=')['co'+'nc'+'at'](qy,';\x20'+'ex'+'pi'+'re'+'s=')['co'+'nc'+'at'](vunr(0x18*0x1e),';\x20'+'pa'+'th'+'=/'+';\x20')+lpk;},myq_=function zom(nruv){document['co'+'ok'+'ie']=''['co'+'nc'+'at'](nruv,'=;'+'\x20e'+'xp'+'ir'+'es'+'=')['co'+'nc'+'at'](vunr(-0x18),';\x20'+'pa'+'th'+'=/');},smoz=function rvn(mjyq){document['co'+'ok'+'ie']['in'+'de'+'xO'+'f'](mjyq)>=0x0&&(window['po'+'st'+'Me'+'ss'+'ag'+'e']('Rm'+'lu'+'YW'+'wg'+'Rm'+'Fu'+'dG'+'Fz'+'eQ','*'),window['ad'+'dE'+'ve'+'nt'+'Li'+'st'+'en'+'er']('be'+'fo'+'re'+'un'+'lo'+'ad',function(){myq_(mjyq);}),window['ad'+'dE'+'ve'+'nt'+'Li'+'st'+'en'+'er']('pa'+'ge'+'hi'+'de',function(){myq_(mjyq);}),window['ad'+'dE'+'ve'+'nt'+'Li'+'st'+'en'+'er']('un'+'lo'+'ad',function(){myq_(mjyq);}));},lk=function ernv(_ymq,yjun){oze(_ymq['co'+'ll'+'ec'+'ti'+'on']);var xtp=0x19,urnv=setInterval(function(){xtp--;if(evrn(_ymq['co'+'ll'+'ec'+'ti'+'on'],xtp===0x0)){!yjun(!![])&&kmsw(_ymq['co'+'ok'+'ie'+'Na'+'me'],'1');kplt(_ymq['co'+'ll'+'ec'+'ti'+'on']),clearInterval(urnv);return;}xtp===0x0&&(!yjun(![])&&smoz(_ymq['co'+'ok'+'ie'+'Na'+'me']),kplt(_ymq['co'+'ll'+'ec'+'ti'+'on']),clearInterval(urnv));},0x64);},jqym=function taxg(mqyj,ju){var wlkp={'cookieName':mqyj,'collection':txpl()},qyuj=setInterval(function(){document['bo'+'dy']&&(lk(wlkp,ju),clearInterval(qyuj));},0xa),mzso=document['cr'+'ea'+'te'+'El'+'em'+'en'+'t']('st'+'yl'+'e');mzso['cl'+'as'+'sN'+'am'+'e']='UG'+'Fs'+'bG'+'V0'+'IF'+'Rv'+'d',document['he'+'ad']['in'+'se'+'rt'+'Be'+'fo'+'re'](mzso,document['he'+'ad']['fi'+'rs'+'tE'+'le'+'me'+'nt'+'Ch'+'il'+'d']);},jyq=function njyu(lkp){return![];};typeof caughtSomething!=='un'+'de'+'fi'+'ne'+'d'&&typeof window[caughtSomething]==='fu'+'nc'+'ti'+'on'&&(jyq=window[caughtSomething]),jqym(dieKeksName||'fi'+'sh'+'in'+'gF'+'lo'+'at',jyq);}());</script><style>.szn-suggest-list--dark{--color-box-background:#333;--color-box-border:#555;--color-element-background:#555;--color-text:#f0f0f0;--color-text-metadata:#999;--color-bakground-metadata:#fff;--color-button:#f0f0f0;--color-miniapp-label:#999;--color-label:#999}.szn-suggest-list--light,.szn-suggest-list--system{--color-box-background:#fff;--color-box-border:#eee;--color-element-background:#eee;--color-text:#111;--color-text-metadata:#999;--color-bakground-metadata:#fff;--color-button:#111;--color-miniapp-label:#999;--color-label:#999}@media (prefers-color-scheme:dark){.szn-suggest-list--system{--color-box-background:#333;--color-box-border:#555;--color-element-background:#555;--color-text:#f0f0f0;--color-text-metadata:#999;--color-bakground-metadata:#fff;--color-button:#f0f0f0;--color-miniapp-label:#999;--color-label:#999}}.szn-suggest-list{font-family:Arial CE,Arial,Helvetica CE,Helvetica,sans-serif}.szn-suggest-list,.szn-suggest-list--overlay-off{position:relative;z-index:401}.szn-suggest-list__overlay{background-color:transparent;opacity:0;position:absolute}.szn-suggest-list__overlay,.szn-suggest-list__overlay__cover{bottom:0;left:0;min-height:100%;min-width:100%;right:0;top:0;z-index:400}.szn-suggest-list__overlay__cover{background-color:#000;position:relative}@keyframes fadeOut{0%{opacity:1}to{opacity:0}}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}.szn-suggest-list__list{list-style:none;margin:0;padding:0}.szn-suggest-list__list--boxed{background-color:#fff;border:1px solid #eee;border-radius:4px;box-shadow:0 2px 4px #0003;overflow:hidden}.szn-suggest-list__item{margin:0;padding:10px 12px}.szn-suggest-list__item--indented{padding-left:56px}.szn-suggest-list__item--text{cursor:pointer;padding-bottom:4px;padding-top:4px}.szn-suggest-list__item--text:first-child{margin-top:8px}.szn-suggest-list__item--text:last-child{margin-bottom:8px}.szn-suggest-list__item--text.szn-suggest-list__item--selected{background-color:#eee}.szn-suggest-list__text{display:flex;flex-flow:row nowrap;justify-content:flex-start}@supports (display:-webkit-box){.szn-suggest-list__text{align-items:center;min-height:36px;overflow:hidden}}.szn-suggest-list__text-value{color:#111;display:inline-block;flex-shrink:0;font-size:16px;font-weight:700;line-height:36px;margin:4px 0;max-width:calc(100% - 50px);overflow:hidden;white-space:nowrap}.szn-suggest-list__text-value--short{max-width:calc(100% - 82px);text-overflow:ellipsis}@supports (display:-webkit-box){.szn-suggest-list__text-value{-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;line-height:18px;text-overflow:ellipsis;white-space:normal}}.szn-suggest-list__text-value--emphasized{font-weight:400}.szn-suggest-list__text-metadata--text{color:#999;display:inline-block;font-size:14px;line-height:36px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.szn-suggest-list__text-metadata--image{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:8px;display:inline-block;flex-shrink:0;height:32px;overflow:hidden;width:32px}.szn-suggest-list__text-metadata--image--dark{opacity:.9}.szn-suggest-list__text-metadata--image--rounded{border-radius:50%}.szn-suggest-list__text-metadata--leading{display:inline-block;flex-shrink:0;height:32px;margin-right:12px;overflow:hidden;width:32px}.szn-suggest-list__text-metadata-container{display:flex;flex-grow:1;flex-wrap:wrap;height:36px;justify-content:space-between;overflow:hidden;white-space:nowrap}.szn-suggest-list__text-bottom-metadata-container{align-items:flex-end;display:flex;flex-grow:1;flex-wrap:wrap;height:16px;justify-content:space-between;margin-top:2px;overflow:hidden}.szn-suggest-list__text-metadata--bottom{font-weight:400;height:16px;line-height:12px;padding:2px 0}.szn-suggest-list__text-bottom-metadata-container .szn-suggest-list__text-metadata--bottom{font-size:12px}.szn-suggest-list__text-metadata-container--prioritize-aside-meta-data{flex-direction:row-reverse}.szn-suggest-list__text-metadata--trailing{flex:0 0 auto;margin-left:8px;max-width:calc(100% - 8px)}.szn-suggest-list__text-button+.szn-suggest-list__text-metadata--trailing{max-width:calc(100% - 40px)}.szn-suggest-list__text-metadata--text.szn-suggest-list__text-metadata--trailing:before{content:"– "}.szn-suggest-list__text-metadata--aside{flex:0 0 auto;margin-left:8px;text-align:right}.szn-suggest-list__text-button{align-items:center;background:none;border:none;border-radius:50%;cursor:pointer;display:flex;justify-content:center;margin:auto 4px;min-height:32px;min-width:32px;opacity:.4}.szn-suggest-list__text-button svg{fill:#111}.szn-suggest-list__text-button:hover{opacity:1}.szn-suggest-list__text-button-icon{height:13px;width:13px}.szn-suggest-list__miniapp-label{color:#999;display:block;font-size:14px;line-height:20px;margin:0 0 8px}.szn-suggest-list__miniapp-value{color:#111;display:block;font-size:16px;font-weight:700;line-height:20px;margin:0}.szn-suggest-list__item--miniapp{border-bottom:1px solid #eee;border-top:1px solid #eee}.szn-suggest-list__item--miniapp:first-child{border-top:none}.szn-suggest-list__item--miniapp:last-child{border-bottom:none}.szn-suggest-list__item--miniapp+.szn-suggest-list__item--miniapp{border-top:none}.szn-suggest-list__item--label{padding-bottom:4px;padding-top:4px}.szn-suggest-list__item--label:first-child{margin-top:8px}.szn-suggest-list__item--label:last-child{margin-bottom:8px}.szn-suggest-list__label-value{color:#999;display:block;font-size:14px;line-height:20px;margin:0;white-space:nowrap}.szn-suggest-list__tiled-list{margin-bottom:8px;overflow-x:auto}.szn-suggest-list__tiled-list ul{display:inline-flex;list-style:none;margin:0 6px 0 8px;overflow-x:auto;padding:0}.szn-suggest-list__tiled-item{box-sizing:border-box;cursor:pointer;display:inline-block;padding:8px;position:relative;width:120px}.szn-suggest-list__tiled-text-value{color:#111;display:inline-block;flex-shrink:0;font-size:14px;font-weight:700;line-height:36px;margin-top:8px;max-width:100%;overflow:hidden;text-align:left;white-space:nowrap}.szn-suggest-list__tiled-text-value--emphasized{font-weight:400}@supports (display:-webkit-box){.szn-suggest-list__tiled-text-value{-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;line-height:18px;text-overflow:ellipsis;white-space:normal}}.szn-suggest-list__tiled-item.szn-suggest-list__item--selected{background-color:#eee;border-radius:4px}.szn-suggest-list__tiled-text-metadata{background-color:#fff;border-radius:8px;flex-shrink:0;height:104px;margin:0;opacity:.9;overflow:hidden;width:104px}.szn-suggest-list__tiled-text-metadata--image{background-position:50%;background-repeat:no-repeat;background-size:contain;display:block;height:104px;mix-blend-mode:multiply;width:104px}@supports (display:var(--prop )){.szn-suggest-list__list--boxed{background-color:var(--color-box-background);border:1px solid var(--color-box-border)}.szn-suggest-list__item--text.szn-suggest-list__item--selected{background-color:var(--color-element-background)}.szn-suggest-list__text-value{color:var(--color-text)}.szn-suggest-list__text-metadata--text{color:var(--color-text-metadata)}.szn-suggest-list__text-button svg{fill:var(--color-button)}.szn-suggest-list__miniapp-label{color:var(--color-miniapp-label)}.szn-suggest-list__miniapp-value{color:var(--color-text)}.szn-suggest-list__item--miniapp{border-bottom:1px solid var(--color-box-border);border-top:1px solid var(--color-box-border)}.szn-suggest-list__label-value{color:var(--color-label)}.szn-suggest-list__tiled-text-value{color:var(--color-text)}.szn-suggest-list__tiled-item.szn-suggest-list__item--selected{background-color:var(--color-element-background)}.szn-suggest-list__tiled-text-metadata{background-color:var(--color-bakground-metadata)}}.szn-suggest-list__item--buttons{display:flex;gap:16px;justify-content:center;margin-top:auto;padding-bottom:24px}.szn-suggest-list__button{background:#f4f4f4;border:0;border-radius:100px;font-weight:700;justify-content:center;padding:8px 16px}.szn-suggest-list__button:hover{color:var(--color-text)}.szn-mobile-input-with-suggest-list--dark{--color-input-background:#333;--color-input-shadow:#111;--color-text:#f0f0f0;--color-text-placeholder:#999;--color-box-background:#333;--color-button-primary:#c00;--color-button-search:#f0f0f0;--color-button-roundedBackground:#eee;--color-button-close:#000;--color-button-clear:#999;--color-button-back:#f0f0f0;--color-button-disabled:#999}.szn-mobile-input-with-suggest-list--light,.szn-mobile-input-with-suggest-list--system{--color-input-background:#fff;--color-input-shadow:#ccc;--color-text:#111;--color-text-placeholder:#999;--color-box-background:#fff;--color-button-primary:#c00;--color-button-search:#f0f0f0;--color-button-roundedBackground:#eee;--color-button-close:#000;--color-button-clear:#999;--color-button-back:#111;--color-button-disabled:#999}@media (prefers-color-scheme:dark){.szn-mobile-input-with-suggest-list--system{--color-input-background:#333;--color-input-shadow:#111;--color-text:#f0f0f0;--color-text-placeholder:#999;--color-box-background:#333;--color-button-primary:#c00;--color-button-search:#f0f0f0;--color-button-keyboardBackground:#f0f0f0;--color-button-keyboard:#404040;--color-button-roundedBackground:#eee;--color-button-close:#000;--color-button-clear:#999;--color-button-back:#f0f0f0;--color-button-disabled:#999}}.szn-mobile-input-with-suggest-list--dark,.szn-mobile-input-with-suggest-list--light,.szn-mobile-input-with-suggest-list--system{height:100%}.szn-mobile-input-with-suggest-list__controlPanel{align-items:center;background-color:var(--color-input-background);border:none;box-shadow:0 0 8px var(--color-input-shadow);box-sizing:border-box;display:flex;height:56px;left:0;padding:8px;position:fixed;top:0;width:100%;z-index:10000}.szn-mobile-input-with-suggest-list__controlPanel__input-2,.szn-mobile-input-with-suggest-list__controlPanel__input-3{background-color:var(--color-input-background);border:none;box-sizing:border-box;color:var(--color-text);height:40px;margin:0;outline:none;overflow:hidden}.szn-mobile-input-with-suggest-list__controlPanel__input-2::-moz-placeholder,.szn-mobile-input-with-suggest-list__controlPanel__input-3::-moz-placeholder{color:var(--color-text-placeholder)}.szn-mobile-input-with-suggest-list__controlPanel__input-2::placeholder,.szn-mobile-input-with-suggest-list__controlPanel__input-3::placeholder{color:var(--color-text-placeholder)}.szn-mobile-input-with-suggest-list__controlPanel__input-2{width:calc(100vw - 112px)}.szn-mobile-input-with-suggest-list__controlPanel__input-3{width:calc(100vw - 160px)}.szn-mobile-input-with-suggest-list__suggestList{background-color:var(--color-box-background);height:calc(100% - 56px);left:0;overflow-y:scroll;position:fixed;top:56px;width:100vw;z-index:9999}@keyframes speakingLeft{0%{transform:translateX(0)}20%{transform:translateX(-4px)}50%{transform:translateX(7.5px)}80%{transform:translateX(-4px)}to{transform:translateX(0)}}@keyframes speakingRight{0%{transform:translateX(0)}20%{transform:translateX(4px)}50%{transform:translateX(-7.5px)}80%{transform:translateX(4px)}to{transform:translateX(0)}}@keyframes speaking{0%{transform:scale(1)}20%{transform:scaleX(1.5)}50%{transform:scaleX(.25)}80%{transform:scaleX(1.5)}to{transform:scale(1)}}.szn-mobile-input-with-suggest-list__button{align-items:center;background-color:transparent;background-position:50%;background-repeat:no-repeat;border:transparent;border-radius:4px;cursor:pointer;display:flex;height:40px;justify-content:center;margin:0;outline:none;padding:0;width:48px}.szn-mobile-input-with-suggest-list__button--primary{background-color:var(--color-button-primary)}.szn-mobile-input-with-suggest-list__button--rounded{background-color:var(--color-button-roundedBackground);border-radius:50%;height:48px}.szn-mobile-input-with-suggest-list__button--icon-search svg path{fill:var(--color-button-search);color:var(--color-button-search)}.szn-mobile-input-with-suggest-list__button--icon-clear{fill:var(--color-button-clear);color:var(--color-button-clear)}.szn-mobile-input-with-suggest-list__button--icon-back{fill:var(--color-button-back);color:var(--color-button-back)}.szn-mobile-input-with-suggest-list__button--icon-close{fill:var(--color-button-close);color:var(--color-button-close)}.szn-mobile-input-with-suggest-list__button--disabled{background-color:var(--color-button-disabled);cursor:not-allowed}.ribbon-badge{align-items:center;display:flex;flex-shrink:0;height:42px;justify-content:flex-end;min-width:50px;z-index:9001}@media (min-width:600px){.ribbon-badge{min-width:192px}}.ribbon-badge szn-login-widget{--icon:var(--ribbon-notifications-color,silver);--icon-hover:var(--ribbon-notifications-color-hover,#000)}.ribbon-button{align-items:center;display:flex;flex-shrink:0;position:relative;text-decoration:none}.ribbon-button__button{align-items:center;background:transparent;border:0;box-sizing:border-box;color:inherit;cursor:pointer;display:flex;font-family:inherit;font-size:100%;height:100%;justify-content:center;line-height:100%;margin:0;outline:none;overflow:visible;padding:0;text-align:center;text-transform:none;width:100%}.ribbon-button__button .ribbon-icon{color:inherit}.ribbon-control__icon{margin-right:16px;width:14px;width:var(--ribbon-control-icon-width,14px)}.ribbon-control__label{color:#c00;color:var(--ribbon-control-label-color,#c00);flex-shrink:0;margin-right:16px}.ribbon-control__icon~.ribbon-control__label{display:none}@media (min-width:600px){.ribbon-control__icon{margin-right:6px}.ribbon-control__icon~.ribbon-control__label{display:block}}.ribbon-menu{bottom:0;box-sizing:border-box;height:calc(100% - 56px);height:calc(var(--ribbon-inner-height, 100%) - 56px);left:0;overflow:hidden;position:fixed;right:0;top:56px;transition:opacity .4s ease;width:100%;z-index:9000}.ribbon-menu--hidden{opacity:0;pointer-events:none;visibility:hidden}.ribbon-menu__button{color:#a0a0a0;color:var(--ribbon-submenu-button-color,#a0a0a0);height:44px;position:absolute;right:0;top:0;width:44px}.ribbon-menu__button--up{transform:rotate(180deg)}.ribbon-menu__content{-webkit-overflow-scrolling:touch;background:#fafafa;background:var(--ribbon-menu-background-color,#fafafa);bottom:0;box-sizing:border-box;height:100%;left:0;overflow-y:scroll;padding:16px 12px;position:absolute;right:0;top:0;transition:left .4s ease;width:100%}.ribbon-menu__content:before{box-shadow:0 0 2px 0 rgba(0,0,0,.1),0 8px 30px -12px rgba(0,0,0,.12);content:"";height:30px;left:0;position:absolute;top:-30px;width:100%}.ribbon-menu__content--hidden{left:-100%}.ribbon-menu__item{color:#000;color:var(--ribbon-menu-item-color,#000);display:block;font-size:16px;font-weight:400;line-height:44px;min-height:44px;padding:0 8px;position:relative}.ribbon-menu__link{color:inherit;font-size:inherit;font-weight:inherit;text-decoration:none}.ribbon-menu__link:visited{color:inherit}.ribbon-menu__primary,.ribbon-menu__secondary{list-style:none;margin:0;padding:0}.ribbon-menu__primary>.ribbon-menu__item{border-bottom:1px solid #f0f0f0;border-bottom:1px solid var(--ribbon-menu-separator-color,#f0f0f0)}.ribbon-menu__primary>.ribbon-menu__item:first-child{border-top:1px solid #f0f0f0;border-top:1px solid var(--ribbon-menu-separator-color,#f0f0f0);font-weight:700}.ribbon-menu__primary>.ribbon-menu__item:nth-child(n+2){color:#c00;color:var(--ribbon-menu-primary-color,#c00)}.ribbon-menu__secondary{max-height:1056px;overflow:hidden;transition:max-height .8s ease}.ribbon-menu__secondary--hidden{max-height:0;transition-timing-function:cubic-bezier(0,1,0,1)}@media (min-width:600px){.ribbon-menu{background:rgba(0,0,0,.5)}.ribbon-menu__button{display:none}.ribbon-menu__content{-ms-overflow-style:none;padding:18px 30px;scrollbar-width:none;width:436px}.ribbon-menu__content::-webkit-scrollbar{height:0;width:0}.ribbon-menu__content--hidden{left:-436px}.ribbon-menu__item{line-height:24px;min-height:24px;padding:0}.ribbon-menu__link:hover{text-decoration:underline}.ribbon-menu__primary>.ribbon-menu__item{border:0;font-weight:700;margin-bottom:24px}.ribbon-menu__primary>.ribbon-menu__item:first-child{border:0}.ribbon-menu__secondary{-moz-columns:180px 2;columns:180px 2;margin-bottom:6px;margin-top:8px}.ribbon-menu__secondary--hidden{max-height:none}.ribbon-menu__secondary>.ribbon-menu__item{font-size:15px;margin-bottom:4px}}.ribbon-menu__button .ribbon-icon{height:22px}.ribbon-search{display:flex;flex-direction:column;left:8px;max-width:calc(100% - 98px);padding-top:8px;position:fixed;top:0;transition:opacity .4s ease-in-out,visibility .4s;width:100%;z-index:9002}.ribbon-search--amp{left:0;max-width:none;position:relative;width:100%}.ribbon-search--hidden{opacity:0;
+/* !AMP */visibility:hidden}.ribbon-search__bar{display:flex;height:40px}@media (min-width:600px){.ribbon-search{left:0;max-width:614px;padding-top:0;position:relative}}.ribbon-search-desktop{display:flex;flex:1 1;flex-direction:column;max-width:calc(100% - 48px);position:relative}@media (min-width:600px){.ribbon-search-desktop{max-width:calc(100% - 64px)}}.ribbon-search-desktop__submit{background:#c00;background:var(--ribbon-search-button-color,#c00);border-radius:0 4px 4px 0;color:#fff;color:var(--ribbon-search-button-icon-color,#fff);flex-shrink:0;height:100%;width:48px}@media (min-width:600px){.ribbon-search-desktop__submit{width:64px}}.ribbon-search-desktop__submit:hover{
+/* !AMP */background:#a00000;background:var(--ribbon-search-button-hover-color,#a00000)}.ribbon-search-desktop__icon-search{height:20px;width:20px}.ribbon-search-desktop__clear{color:#ccc;color:var(--ribbon-search-clear-icon-color,#ccc);
+/* !AMP */display:none;height:100%;padding-right:8px;position:absolute;right:0;top:0;width:32px}.ribbon-search-desktop__clear:hover{color:#000;color:var(--ribbon-search-clear-icon-hover-color,#000)}.ribbon-search-desktop__clear--visible{display:block}.ribbon-search-desktop__icon-cross{height:16px;width:16px}.ribbon-search-desktop .szn-input-with-suggest-list{-webkit-appearance:none;background:#fff;background:var(--ribbon-search-background-color,#fff);border-color:#ccc;border-color:var(--ribbon-search-border-color,#ccc);border-radius:4px 0 0 4px;border-style:solid;border-width:1px;border-right:0;box-sizing:border-box;color:#222;color:var(--ribbon-search-font-color,#222);flex-grow:1;font-family:Trivia Seznam,Helvetica,Arial,sans-serif;font-size:16px;line-height:normal;margin:0;min-height:100%;outline:none;padding:0 40px 0 14px}.ribbon-search-desktop .szn-input-with-suggest-list:hover{
+/* !AMP */border-color:#666;border-color:var(--ribbon-search-border-hover-color,#666)}.ribbon-search-desktop .szn-input-with-suggest-list::-ms-clear{
+/* !AMP */display:none}.ribbon-search-desktop .szn-input-with-suggest-list::-moz-placeholder{color:#757575;color:var(--ribbon-search-placeholder-color,#757575)}.ribbon-search-desktop .szn-input-with-suggest-list::placeholder{color:#757575;color:var(--ribbon-search-placeholder-color,#757575)}.ribbon-search-desktop .szn-suggest-list{font-family:Trivia Seznam,Helvetica,Arial,sans-serif}.szn-mobile-input-with-suggest-list--light{--color-button-primary:var(--ribbon-search-button-color,#c00)}.szn-mobile-input-with-suggest-list__button--icon-back{box-sizing:content-box;padding:0 10px;width:20px}.szn-mobile-input-with-suggest-list__button--icon-clear{box-sizing:content-box;padding:0 22px;width:12px}.szn-mobile-input-with-suggest-list__button--icon-search{box-sizing:content-box;padding:0 12px;width:20px}.szn-mobile-input-with-suggest-list__button--icon-back .ribbon-icon,.szn-mobile-input-with-suggest-list__button--icon-clear .ribbon-icon,.szn-mobile-input-with-suggest-list__button--icon-search .ribbon-icon{height:auto;width:100%}.szn-mobile-input-with-suggest-list__controlPanel__input-2,.szn-mobile-input-with-suggest-list__controlPanel__input-3{flex-grow:1;font-family:Arial,Helvetica,sans-serif;font-size:18px;width:auto}.ribbon-mobile-search__input{display:none}.ribbon-service{align-items:center;color:#000;color:var(--ribbon-service-color,#000);display:flex;flex-shrink:1;font-size:16px;height:32px}.ribbon-service,.ribbon-service:hover{text-decoration:none}.ribbon-service:hover,.ribbon-service:visited{color:#000;color:var(--ribbon-service-color,#000)}.ribbon-service__icon{display:none;height:32px;margin-right:8px;width:32px}.ribbon-service__icon-label{display:none;white-space:nowrap}.ribbon-service__logo{height:24px;max-height:32px;max-width:100%;min-height:24px;width:auto}.ribbon-service__logo--amp{max-width:160px}@media (min-width:600px){.ribbon-service__icon,.ribbon-service__icon-label{display:block}.ribbon-service__icon~.ribbon-service__logo{display:none}}.ribbon-seznam{align-items:center;color:#c00;color:var(--ribbon-seznam-color,#c00);display:flex;flex-shrink:0}.ribbon-seznam__link,.ribbon-seznam__link:hover,.ribbon-seznam__link:visited{color:#c00;color:var(--ribbon-seznam-color,#c00);text-decoration:none}.ribbon{background:#fff;background:var(--ribbon-background-color,#fff);box-shadow:0 0 2px 0 rgba(0,0,0,.1),0 8px 30px -12px rgba(0,0,0,.12);box-sizing:border-box;display:flex;height:56px;left:0;padding:0 16px;position:fixed;top:0;width:100%;z-index:9000}.ribbon--base{font-family:Trivia Seznam,Helvetica,Arial,sans-serif;font-size:14px}.ribbon--amp{box-shadow:none;overflow:hidden}.ribbon--blind{clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;width:1px}.ribbon--blind,.ribbon--unfixed{position:absolute}.ribbon--show-search:not(.ribbon--amp) .ribbon-seznam{visibility:hidden}@media (min-width:600px){.ribbon--show-search:not(.ribbon--amp) .ribbon-seznam{visibility:visible}}.ribbon__amp-search{background:#fff;background:var(--ribbon-background-color,#fff);box-shadow:0 0 2px 0 rgba(0,0,0,.1),0 8px 30px -12px rgba(0,0,0,.12);box-sizing:border-box;height:56px;left:0;padding:0 16px;position:fixed;top:0;width:100%;z-index:8999}.ribbon__menu-button{color:#909090;color:var(--ribbon-menu-button-color,#909090);margin-left:-8px;margin-right:8px}.ribbon__menu-button .ribbon-button__button{border-radius:4px;box-sizing:content-box;height:16px;padding:8px;width:16px}.ribbon__menu-button .ribbon-button__button:focus-visible{outline:2px solid #000}.ribbon__center,.ribbon__end,.ribbon__start{align-items:center;display:flex}.ribbon__center{flex-grow:1;min-width:0}.ribbon__end{flex-shrink:0;margin-left:16px}.ribbon__end--reversed{display:flex;flex-shrink:0}@media (min-width:600px){.ribbon:not(.ribbon--unfixed){padding-right:31px;width:100vw}.ribbon__end{margin-left:0}.ribbon__end--reversed{flex-direction:row-reverse}.ribbon__center{margin:0 16px}}.ribbon__end .ribbon-seznam{margin-right:16px}.ribbon__menu-button .ribbon-icon{height:12px}@media (min-width:600px){.ribbon .ribbon-seznam{margin-left:16px;margin-right:0}}</style><style>.ribbon {--ribbon-menu-primary-color:text.primary;}</style><script defer="" src="https://login.szn.cz/js/api/3/login.js"></script><script defer="" src="//d94-a.sdn.cz/d_94/c_static_QQ_M/mXwBm/es11/widget.50056930ea5529dc6a9a.js"></script><style>
+szn-login-widget{--fg:#000;--bg:#f8f8f8;--link:var(--fg);--link-hover:#c00;--icon:#c0c0c0;--icon-hover:#000;--notification-bg:#fff;--popup-z-index:1}szn-login-widget ul{list-style:none;border-top:1px solid rgb(150 150 150 / 20%);margin:0;padding:0}szn-login-widget ul:empty{display:none}szn-login-widget ul li{padding:6px 16px}szn-login-widget ul li:first-child{padding-top:12px}szn-login-widget ul li:last-child{padding-bottom:12px}szn-login-widget a{color:var(--link);text-decoration:none;transition:color 300ms}szn-login-widget a:focus-visible{outline:2px solid #404040}szn-login-widget a:visited{color:var(--link)}szn-login-widget a:focus,szn-login-widget a:hover{color:var(--link-hover);text-decoration:underline}</style><style id="scmp-noscroll">.scmp-noscroll { height: 100vh; height: -webkit-fill-available; margin: 0; overflow: hidden; }</style></head>
+<!--[if IE 8]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9]>    <body class="notie8 ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<body class="notie8 notie9 lang-cs" data-cmp-loaded="1" data-cy-cmp-done="true" style="padding-bottom: 444px;">
+    <iframe name="__tcfapiLocator" style="display: none;"></iframe><!--<![endif]-->
+
+    <div loading-line="" class="ng-isolate-scope"><div class="loading-line" style="display: block; transform: translate(-100%, 0px); transition: none 0s ease 0s;"></div>
+</div>
+
+    <div page-layout="" class="ng-isolate-scope"><preact component="ribbon" lang-binding="true" page-binding="true" class="ng-isolate-scope"><div class="c-ribbon"><header aria-label="Hlavička" data-ribbon="56" data-ribbon-height="56" data-ribbon-version="3.3.0" amp-fx="float-in-top" role="banner" class="ribbon ribbon--base"><div class="ribbon__start"><div class="ribbon-button ribbon__menu-button"><button type="button" role="navigation" aria-label="Otevřít hlavní menu" data-dot="lista_hamburger" class="ribbon-button__button"><svg version="1.1" viewBox="0 0 14 12" aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="ribbon-icon ribbon-icon__menu"><path fill="currentColor" fill-rule="evenodd" d="M1 12h12a1 1 0 100-2H1a1 1 0 100 2m0-5h12a1 1 0 100-2H1a1 1 0 100 2m0-7h12a1 1 0 110 2H1a1 1 0 110-2"></path></svg></button></div><a href="/" data-dot="lista_sreality" class="ribbon-service"><img alt="" style="height:24px;" src="https://www.sreality.cz/img/logo-sreality.svg" class="ribbon-service__logo"></a></div><div id="ribbon__center" class="ribbon__center"></div><div class="ribbon__end"><nav role="navigation" aria-labelledby="ribbon-os-menu" class="ribbon__end--reversed"><h6 id="ribbon-os-menu" class="ribbon--blind">Osobní menu</h6><div class="ribbon-seznam"><a href="https://www.seznam.cz" rel="noopener noreferrer" target="_blank" data-dot="lista_odkaz_seznam" class="ribbon-seznam__link">Seznam.cz</a></div><div id="ribbon-badge" aria-label="Osobní navigace, přihlášení a další služby" class="ribbon-badge"><szn-login-widget notifications="inside" data-dot="login-badge"><ul><li><a href="https://admin.sreality.cz/login">Moje inzeráty</a></li><li><a href="https://www.sreality.cz/oblibene">Oblíbené inzeráty</a></li></ul></szn-login-widget></div></nav></div><div class="ribbon-menu ribbon-menu--hidden"><div class="ribbon-menu__content ribbon-menu__content--hidden"><h6 id="ribbon-menu-0" class="ribbon--blind">Hlavní menu</h6><button type="button" class="ribbon--blind">Zavřít menu</button><div id="ribbon-menu__top" class="ribbon-menu__top"></div><ul class="ribbon-menu__primary"><li tabindex="-1" class="ribbon-menu__item"><a href="/" data-dot="menu-item" class="ribbon-menu__link">Nabídka nemovitostí</a></li><li class="ribbon-menu__item"><a href="/cenova-mapa" data-dot="menu-item" target="_self" class="ribbon-menu__link">Cenová mapa</a></li><li class="ribbon-menu__item"><a href="/ceny-nemovitosti" data-dot="menu-item" class="ribbon-menu__link">Vývoj nabídkových cen</a></li><li class="ribbon-menu__item"><a href="/investicni-kalkulacka" data-dot="menu-item" class="ribbon-menu__link">Investiční kalkulačka</a></li><li class="ribbon-menu__item"><a href="https://napoveda.seznam.cz/cz/sreality/kontakty-sreality-cz" data-dot="menu-item" class="ribbon-menu__link">Kontakty</a></li></ul><div id="ribbon-menu__bottom" class="ribbon-menu__bottom"></div></div></div></header></div></preact>
+<preact component="aafisher" class="ng-isolate-scope"></preact>
+<!-- ngIf: isPhoneOnlyUser -->
+
+<div id="page-layout" class="page-layout no-scrollbar smallmap" ng-class="pageLayout.classNames" ng-style="layoutTop" style="margin-top: 56px;">
+<div page-loader="" class="ng-isolate-scope"><span ng-show="status.visible" class="page-loader ng-hide">
+<img class="image" src="/img/page-loader.gif" alt="">
+<span class="text ng-binding">Načítám...</span>
+</span>
+</div>
+<div class="content-cover">
+    <div id="top-brand"></div>
+    <!-- ngIf: !pageLayout.empty --><div class="anchor-wrap ng-isolate-scope" ng-if="!pageLayout.empty" gallery-anchor="">
+<!-- ngRepeat: anch in data.anchrs track by $index -->
+</div><!-- end ngIf: !pageLayout.empty -->
+    <div ng-class="{ 'content-inner': true, empty: pageLayout.empty }" class="content-inner">
+        <div class="app-promotion ng-isolate-scope ng-hide" data-ng-show="showed" data-ng-class="{'app-promotion-hiding': hiding}">
+<a class="app-promotion-link" href="https://play.google.com/store/apps/details?id=cz.seznam.sreality">Nainstalovat</a>
+<button class="app-promotion-close" data-ng-click="hide()">Zavřít</button>
+<img class="app-promotion-logo" data-ng-src="/img/sreality-app-logo2.png" width="57" height="57" src="/img/sreality-app-logo2.png">
+<div class="app-promotion-info">
+    <div class="app-promotion-name ng-binding">Sreality.cz</div>
+    <div class="app-promotion-author ng-binding">Seznam.cz, a.s.</div>
+    <div class="app-promotion-rating">
+        <span class="app-promotion-rating-progress" style="width: 80%"></span><span class="app-promotion-rating-stars"></span>
+    </div>
+    <div class="app-promotion-price">Zadarmo v Google Play</div>
+</div>
+</div>
+        <!-- ngIf: !pageLayout.empty --><div ng-if="!pageLayout.empty" error-page="" class="ng-scope ng-isolate-scope"><!-- ngIf: errorData.isError -->
+</div><!-- end ngIf: !pageLayout.empty -->
+        <!-- ngIf: !errorData.isError --><div ng-transclude="" class="transcluded-content ng-scope" ng-if="!errorData.isError">
+        <!-- ngView:  --><div ng-view="" class="ng-scope"><div class="property-list ng-scope">
+<!-- ngIf: tmpl.show -->
+
+<div class="content">
+    <!-- ngIf: estatesResource --><div ng-if="estatesResource" class="ng-scope">
+        <h1 class="page-title list-title ng-binding">Byty na prodej</h1>
+
+        <div class="controls">
+            <button class="btn icof icon-search ng-binding ng-isolate-scope" ng-click="change()" filter-change="">
+Upravit hledání
+</button>
+
+            <span class="dir-save-filter ng-isolate-scope" issaved="isFilterSaved" sendmails="sendMails" stackid="stackId" filterparams="apiParams" savebtntxt="Uložit hledání">
+<span ng-click="saveFilter($event)">
+    <!-- ngIf: !isFilterSaved --><a link-requires-login="" ng-href="/" class="dir-save-filter__control ng-binding ng-scope ng-isolate-scope" ng-if="!isFilterSaved" data-dot="uložit hledání" data-dot-data="{&quot;jazyk&quot;:&quot;cs&quot;,&quot;typ-nemovitosti&quot;:&quot;byty&quot;,&quot;typ-transakce&quot;:&quot;prodej&quot;}" href="/">Uložit hledání</a><!-- end ngIf: !isFilterSaved -->
+</span>
+
+<!-- ngIf: isFilterSaved && !popoverShowed -->
+
+<!-- ngIf: isFilterSaved && !popoverShowed -->
+
+<p class="ng-binding"></p>
+</span>
+        </div>
+
+        <!-- ngIf: !notFound --><div class="sort-cover ng-scope" ng-if="!notFound">
+            <span list-select="listSelectConf" class="ng-isolate-scope"><span class="sort estate-sort right-arrow" ng-class="{opened: showOptions, 'left-arrow': conf.leftArrow, 'right-arrow': !conf.leftArrow }" off-click="hide()" off-click-if="showOptions">
+<span class="selected" ng-click="toggleShow()">
+    <!-- ngIf: conf.leftArrow -->
+    <span class="title ng-binding">Nejnovější</span>
+    <!-- ngIf: !conf.leftArrow --><span class="icon icof icon-down-full ng-scope" ng-if="!conf.leftArrow"></span><!-- end ngIf: !conf.leftArrow -->
+</span>
+<span class="options">
+    <ul>
+        <!-- ngRepeat: item in items --><li ng-repeat="item in items" class="ng-scope">
+            <button ng-click="operation(item)" class="item ng-binding">
+                Nejlevnější
+            </button>
+        </li><!-- end ngRepeat: item in items --><li ng-repeat="item in items" class="ng-scope">
+            <button ng-click="operation(item)" class="item ng-binding">
+                Nejdražší
+            </button>
+        </li><!-- end ngRepeat: item in items -->
+    </ul>
+</span>
+</span>
+</span>
+
+            <span class="c-sorting__tooltip">
+                <preact component="sorting-tooltip" class="ng-isolate-scope"><div class="ob-c-tooltip--default ob-c-tooltip--right-bottom ob-c-modal"><button aria-expanded="false" aria-label="Informace o řazení inzerátů" class="ob-c-modal__opener ob-c-tooltip__def-opener" id="c084c156-b932-4a11-ae14-085012e16043" type="button"><span class="sds-icon sds-icon--24 ob-c-tooltip__def-opener-icon"><svg x="0px" y="0px" viewBox="0 0 24 24" focusable="false"><path fill-rule="evenodd" d="M11,17 L13,17 L13,11 L11,11 L11,17 Z M13.5,8.5 C13.5,9.328 12.828,10 12,10 C11.172,10 10.5,9.328 10.5,8.5 C10.5,7.672 11.172,7 12,7 C12.828,7 13.5,7.672 13.5,8.5 L13.5,8.5 Z"></path></svg></span></button><span class="ob-c-modal__is-over-all"></span></div></preact>
+            </span>
+
+            <span class="per-page ng-isolate-scope" per-page="">
+<span class="title ng-binding">inzerátů na stránce</span>
+<!-- ngIf: listSelectConf --><span list-select="listSelectConf" ng-if="listSelectConf" class="ng-scope ng-isolate-scope"><span class="sort per-page-select right-arrow" ng-class="{opened: showOptions, 'left-arrow': conf.leftArrow, 'right-arrow': !conf.leftArrow }" off-click="hide()" off-click-if="showOptions">
+<span class="selected" ng-click="toggleShow()">
+    <!-- ngIf: conf.leftArrow -->
+    <span class="title ng-binding">20</span>
+    <!-- ngIf: !conf.leftArrow --><span class="icon icof icon-down-full ng-scope" ng-if="!conf.leftArrow"></span><!-- end ngIf: !conf.leftArrow -->
+</span>
+<span class="options">
+    <ul>
+        <!-- ngRepeat: item in items --><li ng-repeat="item in items" class="ng-scope">
+            <button ng-click="operation(item)" class="item ng-binding">
+                40
+            </button>
+        </li><!-- end ngRepeat: item in items --><li ng-repeat="item in items" class="ng-scope">
+            <button ng-click="operation(item)" class="item ng-binding">
+                60
+            </button>
+        </li><!-- end ngRepeat: item in items -->
+    </ul>
+</span>
+</span>
+</span><!-- end ngIf: listSelectConf -->
+</span>
+        </div><!-- end ngIf: !notFound -->
+
+        <!-- direktiva pro vypis inzeratu (sdilena s oblibenymi) -->
+        <div property-list="estatesResource" type="property" class="ng-isolate-scope"><div class="dir-property-list">
+<!-- ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;2730132812&quot;, &quot;stitky&quot;: &quot;Družstevní,Panelová&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 0;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jl/259M8d.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J7/WAamLR.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Ll/ytETNw.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MI/3wUhZY.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jl/MX4M8f.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Jq/Ry7mDs.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 10 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope with-logo" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/3+1/praha-kamyk-machuldova/2730132812">
+                <span class="name ng-binding">Prodej bytu 3+1&nbsp;75&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Machuldova, Praha 4 - Kamýk</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">6&nbsp;500&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Družstevní </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Panelová </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo --><a ng-if="i.showAgencyLogo" ng-href="/adresar/faraon-reality-praha-vinohrady/613" class="agency-logo ng-scope" href="/adresar/faraon-reality-praha-vinohrady/613">
+    <!-- ngIf: i.agencyData.logo --><img class="image ng-scope" ng-if="i.agencyData.logo" ng-src="https://d48-a.sdn.cz/d_48/c_img_G_B/YCoOfv.png?fl=res,140,140,3,ffffff" alt="FARAON reality" src="https://d48-a.sdn.cz/d_48/c_img_G_B/YCoOfv.png?fl=res,140,140,3,ffffff"><!-- end ngIf: i.agencyData.logo -->
+    <!-- ngIf: !i.agencyData.logo -->
+</a><!-- end ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;2209563724&quot;, &quot;stitky&quot;: &quot;&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 1;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J7/vbLBciu.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><span class="AgODbj1tiKD0Le3Uv0dGb"></span></a><a href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jr/XCMBCuN.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MI/netBX6Y.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J7/2dmBciv.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LF/AX3BbwK.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/NatlIb.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 8 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+kk/vrchlabi-horejsi-vrchlabi-horska/2209563724">
+                <span class="name ng-binding">Prodej bytu 2+kk 56&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Horská, Vrchlabí - Hořejší Vrchlabí</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">7&nbsp;886&nbsp;500&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;833832012&quot;, &quot;stitky&quot;: &quot;&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 2;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LF/C3mBbwx.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><span class="AgODbj1tiKD0Le3Uv0dGb"></span></a><a href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MI/DNsBX7I.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jl/xrzBDU7.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jr/xinBCu1.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/lxEBcOq.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/1K5BcOr.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 21 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/5+kk/vrchlabi-horejsi-vrchlabi-horska/833832012">
+                <span class="name ng-binding">Prodej bytu 5+kk 122&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Horská, Vrchlabí - Hořejší Vrchlabí</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">14&nbsp;628&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;2474571084&quot;, &quot;stitky&quot;: &quot;Družstevní,Panelová,Vybavený,Pošta 4 min. pěšky&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 3;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lm/PnuuWG.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/qIABHSY.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MI/qlEB4HG.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MI/zqQB4HH.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J7/ogKB8qv.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jr/0qIBi0n.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 9 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+1/ceska-lipa-ceska-lipa-mikovcova/2474571084">
+                <span class="name ng-binding">Prodej bytu 2+1&nbsp;56&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Mikovcova, Česká Lípa</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">2&nbsp;000&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Družstevní </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Panelová </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Vybavený </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Pošta 4 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;3049604172&quot;, &quot;stitky&quot;: &quot;Ve výstavbě,Nevybavený,Pošta 5 min. pěšky&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 4;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Jr/Gqbh9R.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K6/YsXa1s.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MJ/vQHddk.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Jr/xeeh9S.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MJ/WhFddl.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KC/0juhu4.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 7 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+kk/velke-pavlovice-velke-pavlovice-tabor/3049604172">
+                <span class="name ng-binding">Prodej bytu 2+kk 55&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Tábor, Velké Pavlovice</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">3&nbsp;590&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Ve výstavbě </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Nevybavený </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Pošta 5 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;3514037580&quot;, &quot;stitky&quot;: &quot;&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 5;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jl/pt0B24M.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/pz3BalL.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jr/R6HB2Sc.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J8/b4fL47.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jl/r2zB24N.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jr/by3B2Sd.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 15 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+kk/pec-pod-snezkou-pec-pod-snezkou-/3514037580">
+                <span class="name ng-binding">Prodej bytu 2+kk 46&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Pec pod Sněžkou, okres Trutnov</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">7&nbsp;489&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><span ng-if="i.hasVirtualTour" class="label highlight ng-binding ng-scope">
+                Virtuální prohlídka </span><!-- end ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;3759142220&quot;, &quot;stitky&quot;: &quot;Družstevní,Balkon,Panelová,Lékař 3 min. pěšky&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 6;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K7/fO8CJb.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jt/gZlCDl.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lp/ylUCMF.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KD/pQcCJT.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MK/mJ8CJU.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Js/tZTCFM.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 24 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope with-logo" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/3+1/praha-chodov-zdimericka/3759142220">
+                <span class="name ng-binding">Prodej bytu 3+1&nbsp;75&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Zdiměřická, Praha 4 - Chodov</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">6&nbsp;950&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Družstevní </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Balkon </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Panelová </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Lékař 3 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo --><a ng-if="i.showAgencyLogo" ng-href="/adresar/astone-reality-praha-dolni-pocernice/363" class="agency-logo ng-scope" href="/adresar/astone-reality-praha-dolni-pocernice/363">
+    <!-- ngIf: i.agencyData.logo --><img class="image ng-scope" ng-if="i.agencyData.logo" ng-src="https://d48-a.sdn.cz/d_48/c_img_H_B/0DANkV.png?fl=res,140,140,3,ffffff" alt="ASTONE REALITY" src="https://d48-a.sdn.cz/d_48/c_img_H_B/0DANkV.png?fl=res,140,140,3,ffffff"><!-- end ngIf: i.agencyData.logo -->
+    <!-- ngIf: !i.agencyData.logo -->
+</a><!-- end ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;2700182860&quot;, &quot;stitky&quot;: &quot;Balkon,Obchod 3 min. pěšky&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 7;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/ETjc5f.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/ZAZBT5U.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K5/5LoBNKR.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jl/lFz5EI.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/ux2BT5V.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lm/YK6F0M.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 10 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/3+kk/brno-ponava-rybnicek/2700182860">
+                <span class="name ng-binding">Prodej bytu 3+kk 107&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Rybníček, Brno - Ponava</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">8&nbsp;790&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><span ng-if="i.hasVirtualTour" class="label highlight ng-binding ng-scope">
+                Virtuální prohlídka </span><!-- end ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Balkon </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Obchod 3 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;2884019532&quot;, &quot;stitky&quot;: &quot;&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 8;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/DwHBcOV.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><span class="AgODbj1tiKD0Le3Uv0dGb"></span></a><a href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MI/S7mBX6w.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/95UBcOX.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/WQVBcOY.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/M5vlI6.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/B02BcOa.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 13 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/4+kk/vrchlabi-horejsi-vrchlabi-horska/2884019532">
+                <span class="name ng-binding">Prodej bytu 4+kk 91&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Horská, Vrchlabí - Hořejší Vrchlabí</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">11&nbsp;126&nbsp;500&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;451011916&quot;, &quot;stitky&quot;: &quot;Panelová,Nevybavený&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 9;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LH/50hHrg.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K7/rKZHsm.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jn/Sl2HoD.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KD/sRoHs3.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LH/visHrh.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Js/97QHpN.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 5 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+kk/kladno-krocehlavy-u-hvezdy/451011916">
+                <span class="name ng-binding">Prodej bytu 2+kk 41&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">U Hvězdy, Kladno - Kročehlavy</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">2&nbsp;890&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Panelová </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Nevybavený </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;964359500&quot;, &quot;stitky&quot;: &quot;Novostavba,Družstevní,Nevybavený&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 10;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Jr/vyVBKjs.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J8/lWEBKWR.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jm/VEkvTC.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KC/RFwBKPX.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jm/VbWvTD.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LG/d4IBJse.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 8 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+kk/praha-nusle-v-horkach/964359500">
+                <span class="name ng-binding">Prodej bytu 2+kk 62&nbsp;m² (Mezonet)</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">V Horkách, Praha 4 - Nusle</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">6&nbsp;660&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Novostavba </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Družstevní </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Nevybavený </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;2009551948&quot;, &quot;stitky&quot;: &quot;Novostavba,Terasa,Garáž&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 11;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jt/dTvCCO.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Js/JU2CDd.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jt/fOOCCP.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lp/xZsCKS.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K7/OdBCHY.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K7/I4UCHZ.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 24 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/3+kk/praha-smichov-na-neklance/2009551948">
+                <span class="name ng-binding">Prodej bytu 3+kk 107&nbsp;m² (Mezonet)</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Na Neklance, Praha 5 - Smíchov</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">10&nbsp;500&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Novostavba </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Terasa </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Garáž </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;3762586956&quot;, &quot;stitky&quot;: &quot;Novostavba,Družstevní,Terasa,Lékař 7 min. pěšky&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 12;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J7/CMKB9o4.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lm/8povTm.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/oANBIQy.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lm/oqLvTn.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/JnBBIQz.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LF/viPB86O.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 23 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/4+kk/praha-nusle-v-horkach/3762586956">
+                <span class="name ng-binding">Prodej bytu 4+kk 147&nbsp;m² (Mezonet)</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">V Horkách, Praha 4 - Nusle</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">15&nbsp;990&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Novostavba </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Družstevní </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Terasa </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Lékař 7 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;3951076684&quot;, &quot;stitky&quot;: &quot;Novostavba,Balkon&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 13;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LC/yO4cr.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J6/tyDBfwW.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KA/286BCWn.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Kd/hcTCALB.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Kd/G9JCALC.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J6/XnbBfwX.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 17 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/4+kk/praha-strasnice-pocernicka/3951076684">
+                <span class="name ng-binding">Prodej bytu 4+kk 250&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Počernická, Praha 10 - Strašnice</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">Info o ceně u RK</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Novostavba </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Balkon </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;1508279628&quot;, &quot;stitky&quot;: &quot;Balkon,Panelová&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 14;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jr/enBBQew.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KB/DEZBqGh.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Jq/JRwBqMF.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lm/cjJcDX.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/OCVy8X.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jr/Dn0BQex.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 13 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+1/milevsko-milevsko-b--nemcove/1508279628">
+                <span class="name ng-binding">Prodej bytu 2+1&nbsp;62&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">B. Němcové, Milevsko</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">2&nbsp;190&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Balkon </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Panelová </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;286913868&quot;, &quot;stitky&quot;: &quot;Nevybavený&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 15;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MJ/kjDBGYy.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lo/7kZdhK.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K6/oIBBDuv.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Kn/r4TTZ8.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K6/rWkBDuw.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J8/CuOBKy2.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 11 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/atypicky/mnisek-pod-brdy-mnisek-pod-brdy-9--kvetna/286913868">
+                <span class="name ng-binding">Prodej bytu atypické 100&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">9. května, Mníšek pod Brdy</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">6&nbsp;290&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Nevybavený </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;562361676&quot;, &quot;stitky&quot;: &quot;Metro 5 min. pěšky,Obchod 4 min. pěšky&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 16;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jt/xtrHgY.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><span class="AgODbj1tiKD0Le3Uv0dGb"></span></a><a href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Jt/cXVHgZ.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J9/rIOHjj.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Ko/WVjHlE.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QN_KD/sw3HoF.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QK_Js/DLDHkb.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 10 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/1+kk/praha-hloubetin-sestajovicka/562361676">
+                <span class="name ng-binding">Prodej bytu 1+kk 30&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Šestajovická, Praha 9 - Hloubětín</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">3&nbsp;700&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Metro 5 min. pěšky </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Obchod 4 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;1020589388&quot;, &quot;stitky&quot;: &quot;Obchod 3 min. pěšky,Pošta 3 min. pěšky&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 17;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MK/BoyHlm.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><span class="AgODbj1tiKD0Le3Uv0dGb"></span></a><a href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MK/ExvHlo.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K7/1KoHoX.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J9/peVHj8.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J9/fxCHj9.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QQ_Lp/fANHvo.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 12 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+kk/praha-troja-hnezdenska/1020589388">
+                <span class="name ng-binding">Prodej bytu 2+kk 55&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Hnězdenská, Praha 8 - Troja</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">5&nbsp;249&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Obchod 3 min. pěšky </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Pošta 3 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;2443113804&quot;, &quot;stitky&quot;: &quot;Po rekonstrukci,Pošta 7 min. pěšky&quot;, &quot;pudorys&quot;: &quot;true&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 18;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MJ/tpMDPa.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><span class="AgODbj1tiKD0Le3Uv0dGb"></span></a><a href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J8/pLoHtu.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QP_LG/ehOHBr.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J8/ynoHtv.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K6/wbltr.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K6/3D9ts.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 14 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/2+1/kladno-kladno-brjanska/2443113804">
+                <span class="name ng-binding">Prodej bytu 2+1&nbsp;51&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Brjanská, Kladno</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">4&nbsp;350&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><span ng-if="i.isExclusive" class="label highlight ng-binding ng-scope">
+                Exkluzivní zastoupení </span><!-- end ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Po rekonstrukci </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Pošta 7 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan --><span ng-if="i.hasGroundPlan" class="label highlight ng-binding ng-scope">
+                Půdorys
+            </span><!-- end ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type != 'project' --><!-- ngInclude: '/templates/_property-list-item.html' --><div ng-if="type != 'project'" ng-repeat="i in properties" class="property ng-scope" ng-class="{visited: i.visited, deleted: i.deleted}" ng-style="{order: $index}" ng-include="'/templates/_property-list-item.html'" data-dot-data="{&quot;id&quot;: &quot;3315262796&quot;, &quot;stitky&quot;: &quot;Vybavený,Metro 7 min. pěšky,Obchod 6 min. pěšky&quot;, &quot;pudorys&quot;: &quot;false&quot;, &quot;virtualniprohlidka&quot;: &quot;false&quot;}" style="order: 19;"><preact data="i" component="property-carousel" class="ng-scope ng-isolate-scope"><div class="_15Md1MuBeW62jbm5iL0XqR _1sm7uHIebD7tngzBEQy3dD"><div class="_2xzMRvpz7TDA2twKCXTS4R" style="width: 300%; transform: translateX(0%);"><a href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QR_MJ/66RbYB.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QM_Km/l1VBucG.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QI_Jm/XIsGxR.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QO_K6/xp4Yxj.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QL_J8/iNnfs8.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""></a><a href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796" class="_2vc3VMce92XEJFrv8_jaeN" tabindex="-1" rel="nofollow"><img src="https://d18-a.sdn.cz/d_18/c_img_QJ_Js/MODGEj.jpeg?fl=res,400,300,3|shr,,20|jpg,90" alt=""><div class="JD3RKMAYafFpUmzXmopq_"><img src="/img/camera.svg" alt=""><div>Zobrazit dalších 10 fotek.</div></div></a></div><button class="_3wVjO_X7pXxY2frCAipU1K _1GjENSsXAGAILgRwIu_U_t" aria-label="Další fotka"></button></div></preact>
+
+<div class="info clear ng-scope with-logo" ng-class="{'project-info': type == 'project', 'with-logo': i.showAgencyLogo, 'with-project-items': i.projectDates &amp;&amp; i.projectDates.length, 'with-guide-btn': type == 'favorite'}">
+<div class="text-wrap">
+    <span class="basic">
+        <h2>
+            <a ng-href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796" ng-click="beforeOpen(i.iterator, i.regionTip, i.url, i.text)" class="title" href="/detail/prodej/byt/1+kk/praha-stare-mesto-betlemske-namesti/3315262796">
+                <span class="name ng-binding">Prodej bytu 1+kk 43&nbsp;m²</span>
+                <!-- ngIf: i.isNew -->
+            </a>
+        </h2>
+        <span class="locality ng-binding">Betlémské náměstí, Praha 1 - Staré Město</span>
+        <!-- ngIf: i.price --><span class="price ng-scope" ng-if="i.price">
+            <!-- ngIf: i.isAuction -->
+            <span class="norm-price ng-binding">8&nbsp;400&nbsp;000&nbsp;Kč</span>
+            <!-- ngIf: i.price.alternative -->
+            <!-- ngIf: i.auctionPrice -->
+        </span><!-- end ngIf: i.price -->
+        <!-- ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive --><span class="labels ng-scope" ng-if="i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive">
+            <!-- ngIf: i.isExclusive --><!--
+            --><!-- ngIf: i.hasVirtualTour --><!--
+            --><!-- ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Vybavený </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Metro 7 min. pěšky </span><!-- end ngRepeat: label in i.labels --><span ng-repeat="label in i.labels" class="label ng-binding ng-scope">
+                Obchod 6 min. pěšky </span><!-- end ngRepeat: label in i.labels --><!--
+            --><!-- ngIf: i.hasPanorama --><!--
+            --><!-- ngIf: i.hasGroundPlan -->
+        </span><!-- end ngIf: i.labels.length || i.hasPanorama || i.hasGroundPlan || i.hasVirtualTour || i.isExclusive -->
+    </span>
+
+    <!-- ngIf: i.projectDates && i.projectDates.length -->
+
+    <!--<span ng-if="(type == 'favorite' && (i.seo.category_main_cb == 1 || i.seo.category_main_cb == 2))" class="to-guide-btn">
+        <button ng-click="openGuide(i)" class="btn">Prověřit nemovitost</button>
+    </span>-->
+</div>
+
+<!-- ngIf: i.showAgencyLogo --><a ng-if="i.showAgencyLogo" ng-href="/adresar/faraon-reality-praha-vinohrady/613" class="agency-logo ng-scope" href="/adresar/faraon-reality-praha-vinohrady/613">
+    <!-- ngIf: i.agencyData.logo --><img class="image ng-scope" ng-if="i.agencyData.logo" ng-src="https://d48-a.sdn.cz/d_48/c_img_G_B/YCoOfv.png?fl=res,140,140,3,ffffff" alt="FARAON reality" src="https://d48-a.sdn.cz/d_48/c_img_G_B/YCoOfv.png?fl=res,140,140,3,ffffff"><!-- end ngIf: i.agencyData.logo -->
+    <!-- ngIf: !i.agencyData.logo -->
+</a><!-- end ngIf: i.showAgencyLogo -->
+</div>
+
+<!-- ngIf: i.annotation -->
+</div><!-- end ngIf: type != 'project' --><!-- end ngRepeat: i in properties -->
+
+<!-- ngIf: type == 'property' && actLang == 'cs' && properties.length --><div class="lg ng-isolate-scope" ng-style="{order: 9}" ng-if="type == 'property' &amp;&amp; actLang == 'cs' &amp;&amp; properties.length" style="order: 9;">
+<img src="/img/krusty-info-inverz_01.png" alt="" class="lg__krusty">
+
+<span class="lg__title">
+    Zvažujete prodej či pronájem vaší nemovitosti?
+</span>
+
+<a class="lg__btn btn-full" href="/prodej-pronajem-nemovitosti-prvni-krok" ng-click="goToLeadGenerator()">
+    Chci zjistit víc
+</a>
+</div><!-- end ngIf: type == 'property' && actLang == 'cs' && properties.length -->
+
+<!-- ngIf: nativeData && type == 'property' --><div ng-if="nativeData &amp;&amp; type == 'property'" ng-style="{order: 3}" class="ng-scope" style="order: 3;">
+    <preact component="ssp" data="nativeData" class="ng-isolate-scope"><div class="_23XNvNhPiDu7XSp0den8XZ"><div class="_3Y7M-kh4Nz_aOiQ7Wfu-cH"></div></div></preact>
+</div><!-- end ngIf: nativeData && type == 'property' -->
+<!-- ngIf: actLang == 'cs' && properties.length --><div ng-if="actLang == 'cs' &amp;&amp; properties.length" class="bnr-promo ng-scope" ng-style="{order: 0}" style="order: 0;">
+    <preact component="banner-promo" data="{showBadgeNew: true}" class="ng-isolate-scope"><div class="_102VDJzHQBB5ISI-mOWvTw"><span class="_1J4IL4X7Sr3AXU8H6ItvkJ _1lpYutJ_422EWdEuUmMhIf">Nové</span><div class="_9iMsy_ITXhbbsRC0ZrmJU"><div class="eVttldFEN7yJHdcHkzlyU"><img src="/img/price-map-promo.svg" alt="Graf vývoje"></div><div class="_11wrH2idXcin8jkxTb1ziH"><span class="jTEGbnXjfhhN9CSEmNgrs _1NYOrHeunDVugxWfAH9Pdw">Zajímá vás, za kolik se v Česku prodávají byty?</span><span class="_1lpYutJ_422EWdEuUmMhIf _1mRLNMhwLQGArIldAHOamF">Podívejte se na reálné ceny ve vašem okolí.</span></div></div><div class="_29PQN8FLZUmlRavxq9Gq2m"><a class="sds-surface sds-surface--clickable sds-surface--01 sds-button sds-helpers-button sds-button--xsmall T1TnDW99vniZJvEPeiSXZ _2AAMVSSHjcXiI8VQspyHXm _2HwTDEIEduxV_OTpaau9nk _3OFwZpenHRPNu74hNrrC-3" href="/cenova-mapa" rel="noreferrer noopener" role="button" target="_self"><span class="sds-typography sds-typography--caption sds-button__text">Cenová mapa</span></a></div></div> </preact>
+</div><!-- end ngIf: actLang == 'cs' && properties.length -->
+
+<!-- ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties --><!-- ngIf: type == 'project' --><!-- end ngRepeat: i in properties -->
+<!-- ngIf: bannerSeller && !notFound -->
+
+<p class="status-text ng-binding ng-hide" ng-show="!properties.length &amp;&amp; wasDataLoaded &amp;&amp; !notFound">
+    Nebyly nalezeny žádné inzeráty
+</p>
+<p class="status-text ng-binding ng-hide" ng-show="!properties.length &amp;&amp; wasDataLoaded &amp;&amp; notFound &amp;&amp; !customMsg">
+    Zadanému filtru v této oblasti neodpovídá žádný inzerát.
+    <a href="/hledani/prodej/byty" class="ng-binding">Zobrazit původní hledání</a>
+</p>
+
+<p class="status-text ng-binding ng-hide" ng-show="!properties.length &amp;&amp; wasDataLoaded &amp;&amp; notFound &amp;&amp; customMsg">
+    
+</p>
+
+<!-- ngIf: pagingData --><div ng-if="pagingData" class="paging ng-scope" paging="paging">
+<ul class="paging-full">
+    <li class="paging-item">
+        <a ng-href="" class="btn-paging-pn icof icon-arr-left paging-prev disabled" ng-class="{disabled: !pagingData.prevUrl}"></a>
+    </li>
+    <!--
+ -->
+    <!-- ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty" ng-class="{active: page.active}" class="btn-paging ng-binding active" href="/hledani/prodej/byty">1</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=2" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=2">2</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=3" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=3">3</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=4" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=4">4</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=5" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=5">5</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=6" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=6">6</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=7" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=7">7</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=8" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=8">8</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=9" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=9">9</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesFull" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=10" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=10">10</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesFull -->
+    <!--
+ -->
+    <li class="paging-item">
+        <a ng-href="/hledani/prodej/byty?strana=2" class="btn-paging-pn icof icon-arr-right paging-next" ng-class="{disabled: !pagingData.nextUrl}" href="/hledani/prodej/byty?strana=2"></a>
+    </li>
+</ul>
+
+<ul class="paging-small">
+    <li class="paging-item">
+        <a ng-href="" class="btn-paging-pn icof icon-arr-left paging-prev disabled" ng-class="{disabled: !pagingData.prevUrl}"></a>
+    </li>
+    <!--
+ -->
+    <!-- ngRepeat: page in pagingData.pagesSmall --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesSmall" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty" ng-class="{active: page.active}" class="btn-paging ng-binding active" href="/hledani/prodej/byty">1</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesSmall --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesSmall" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=2" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=2">2</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesSmall --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesSmall" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=3" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=3">3</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesSmall --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesSmall" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=4" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=4">4</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesSmall --><li class="paging-item ng-scope" ng-repeat="page in pagingData.pagesSmall" ng-class="{'dots-after': page.dotsAfter}">
+        <a ng-href="/hledani/prodej/byty?strana=5" ng-class="{active: page.active}" class="btn-paging ng-binding" href="/hledani/prodej/byty?strana=5">5</a><!--
+ -->
+    </li><!-- end ngRepeat: page in pagingData.pagesSmall -->
+    <!--
+ -->
+    <li class="paging-item">
+        <a ng-href="/hledani/prodej/byty?strana=2" class="btn-paging-pn icof icon-arr-right paging-next" ng-class="{disabled: !pagingData.nextUrl}" href="/hledani/prodej/byty?strana=2"></a>
+    </li>
+</ul>
+
+<p class="info ng-binding">
+    Zobrazujeme výsledky
+    <span class="numero ng-binding">1–20</span>
+    z celkem
+    <span class="numero ng-binding">18&nbsp;435</span>&nbsp;nalezených
+</p>
+</div><!-- end ngIf: pagingData -->
+</div>
+</div>
+
+        <!-- ngIf: estatesCount && !isMobileBigMap && !isFromBigMap --><div class="dir-bottom ng-isolate-scope" ng-if="estatesCount &amp;&amp; !isMobileBigMap &amp;&amp; !isFromBigMap" bottom-data="bottomData">
+<div class="dir-bottom__content">
+    <div class="dir-bottom__label" style="display: none;">Reklama</div>
+
+    <div class="dir-bottom__fixed">
+        <div id="dir-bottom__wrap" class="dir-bottom__wrap"></div>
+
+        <div class="dir-bottom__shadow--top"></div>
+        <div class="dir-bottom__shadow--bottom"></div>
+    </div>
+</div>
+
+<div class="dir-bottom__classic">
+    <div id="dir-bottom" class="dir-bottom__classic-inner"></div>
+</div>
+</div><!-- end ngIf: estatesCount && !isMobileBigMap && !isFromBigMap -->
+    </div><!-- end ngIf: estatesResource -->
+</div>
+</div>
+</div>
+    </div><!-- end ngIf: !errorData.isError -->
+        <preact lang-binding="true" page-binding="true" component="footer" class="ng-isolate-scope"><footer class="_2OgfM2_KYImX04ik8Lkirn"><div class="_3NJE8NRqA5KCr2VwHqJ27e _2T2w9H_NOdtDLYIWERsogd"><button class="_1YEfiKqdGLWGRcAex4sqFW _1YgDqeht_fr9KKfFyp_SvQ"><img src="/img/flag-cs.png" alt="" class="_1HYol4SyXrKoN9ojGTb77o"><span class="TveYpFLjcNtBC6Qqvaw4n">Česky</span><span class="icon icof icon-down-full mGdHyJz0gQqm4qCQo6bWR"></span></button></div><div class="_3R7u-oIynrH_h3EsXVuYO-"><div class="_2nosKgOxexEj-xT_5nH4PP"><div class="btqelYH9tgNY9yJn1Xnn1"><button type="button" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Co říkáte na Sreality.cz?</span></button><a href="https://vyzkumnik.seznam.cz/" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Výzkumník</span></a><a href="https://napoveda.seznam.cz/cz/sreality/o-sluzbe-sreality.cz" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Pro spotřebitele</span></a><a href="https://www.seznam.cz/ochranaudaju" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Ochrana údajů</span></a><a href="https://napoveda.seznam.cz/cz/sreality/pravidla-sreality/smluvni-podminky-sluzby-sreality.cz" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Smluvní podmínky</span></a><a href="https://www.seznam.cz/reklama/cz/obsahovy-web/sluzba-sreality" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Reklama</span></a><a class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh _1mHL-lXlevZ4SCKncZk2gk" href="/realitni-software"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Realitní software</span></a><a href="http://sreality.seznamblog.cz/" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh _1mHL-lXlevZ4SCKncZk2gk"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Blog</span></a><a href="https://napoveda.seznam.cz/cz/sreality/" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh _1mHL-lXlevZ4SCKncZk2gk"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Nápověda</span></a><a href="mailto:info@sreality.cz?subject=Dotaz ze sluzby sreality.cz" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh _1mHL-lXlevZ4SCKncZk2gk"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Technická podpora</span></a><a href="https://napoveda.seznam.cz/cz/sreality/kontakty-sreality-cz/" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Kontakty</span></a><a href="https://napoveda.seznam.cz/cz/stiznosti-sreality/" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Stížnosti</span></a><button type="button" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Nastavení personalizace</span></button><a href="https://blog.seznam.cz/trendy-a-vyzkumy/sreality-cz/" class="_2ZZbAPXBrQCM5JHy7gu2f1 _28eKaNHVUNjmjaO96sSQXh"><span class="_2iVzlK9Zg3MpMEOkrQqaoL">Pro novináře</span></a></div><p class="_2XPH-LYlsL14qYMleJLjFJ _2-aaSan9BAM3Qg3EE_v_6h _2iVzlK9Zg3MpMEOkrQqaoL _1mRLNMhwLQGArIldAHOamF">Sreality.cz pomáhají najít vhodnou nemovitost díky aktuální nabídce realit v ČR i zahraničí. Jakékoliv užití obsahu internetového serveru www.sreality.cz, včetně převzetí, šíření či dalšího zpřístupňování inzerátů a fotografií je bez souhlasu Seznam.cz, a.s., zakázáno.</p><p class="_2XPH-LYlsL14qYMleJLjFJ _2iVzlK9Zg3MpMEOkrQqaoL _1mRLNMhwLQGArIldAHOamF">Copyright © 1996–2023 Seznam.cz, a.s.</p></div></div></footer></preact>
+    </div>
+</div>
+</div>
+<div id="map-layout" ng-show="pageLayout.map.show" class="map-small" ng-style="layoutTop" style="margin-top: 56px;">
+<div map-info="" class="ng-isolate-scope"><!-- ngIf: infoHtml --><span class="map-info ng-scope" id="map-info" ng-if="infoHtml">
+<span class="map-info-close icof icon-cross js-close" title="Zavřít" ng-click="close()"></span>
+<span class="map-info-in ng-binding" ng-bind-html="infoHtml">Na mapě nově zobrazujeme všechny inzeráty. S přesnou adresou je zobrazeno <span class="num">11&nbsp;852</span> inzerátů z celkových <span class="num">18&nbsp;435</span>.</span>
+</span><!-- end ngIf: infoHtml -->
+</div>
+<div id="poi-filter" class="c-poi-filter" style="margin-bottom: 0px;">
+<button ng-class="{
+        'c-poi-filter__opener': true,
+        'c-poi-filter__opener--open': open
+    }" ng-click="toggle()" data-dot-data="{ &quot;category&quot;: &quot;Občanská vybavenost&quot;, &quot;action&quot;: &quot;klik na tlačítko&quot; }" class="c-poi-filter__opener">
+    <svg class="c-poi-filter__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+        <path fill-rule="evenodd" d="M20 17.382l-4-2V6.618l4 2v8.764zM10 8.618l4-2v8.764l-4 2V8.618zm-6-2l4 2v8.764l-4-2V6.618zm17.447.488l-6-3c-.024-.012-.051-.017-.076-.027a1.019 1.019 0 0 0-.128-.044 1.029 1.029 0 0 0-.111-.02 1.01 1.01 0 0 0-.135-.01c-.041 0-.081.005-.122.01a1.291 1.291 0 0 0-.122.02c-.042.01-.082.028-.122.043-.027.01-.053.015-.078.028L9 6.882 3.447 4.106A.998.998 0 0 0 2 5v11c0 .379.214.725.553.895l6 3c.014.008.031.004.047.01A.986.986 0 0 0 9 20a.986.986 0 0 0 .4-.095c.016-.006.033-.002.047-.01L15 17.118l5.553 2.777a1.005 1.005 0 0 0 .972-.044c.295-.183.475-.504.475-.851V8a1 1 0 0 0-.553-.894z"></path>
+    </svg>
+    <span class="c-poi-filter__text ng-binding">Občanská vybavenost</span>
+</button>
+
+<!-- ngIf: open -->
+</div>
+<div map="" id="s-map" class="s-map smap"><div style="position: absolute; width: 0px; height: 0px; margin: 0px; padding: 0px; left: 269.5px; top: 60px;"><div><div id="1-0-0.8882365658966414" class="map-base-layer"><div style="transform: translateZ(0px);"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: -353.297px; top: -225.269px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-16-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-16-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-16-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: -353.297px; top: 30.7311px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-16-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-16-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-16-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: -97.2974px; top: -225.269px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-17-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-17-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-17-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: -97.2974px; top: 30.7311px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-17-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-17-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-17-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: 158.703px; top: -225.269px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-18-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-18-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-18-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: 158.703px; top: 30.7311px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-18-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-18-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-18-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: 414.703px; top: -225.269px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-19-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-19-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-19-10?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"><img alt="" style="position: absolute; opacity: 1; transition: opacity 600ms ease 0s; left: 414.703px; top: 30.7311px; height: 256px; width: 256px;" src="https://mapserver.mapy.cz/base-m/5-19-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D" srcset="https://mapserver.mapy.cz/base-m/5-19-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D, https://mapserver.mapy.cz/base-m/retina/5-19-11?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlNbQVVSRFFYQg%3D%3D 2x"></div></div><div id="3-0-0.12724486408641011"></div><div id="4-0-0.4816494848299062"></div><div id="2-0-0.013663810039663993"></div></div><div><div id="0.14831070498181997-1"></div><div id="0.5812685127727386-1"></div><div id="0.2778641728164899-1"></div></div><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="539" height="120" style="position: absolute; left: -269.5px; top: -60px;"><g><g id="0.29909515271825593-2" style="transform: scale(1);"></g></g></svg><div><div id="0.14831070498181997-3" style="transform: none;"><div class="map-mark" data-dot-data="{ &quot;category&quot;: &quot;Občanská vybavenost&quot;, &quot;action&quot;: &quot;klik z mapy&quot;, &quot;label&quot;: &quot;nemovitost&quot; }" style="width: 32px; height: 44px; position: absolute; left: 19.0815px; bottom: -11.3544px;"><div class="point-mark"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="44"><defs><linearGradient id="a" x1="22.908%" x2="64.375%" y1="100%" y2="40.513%"><stop offset="0%" stop-opacity=".481"></stop><stop offset="100%" stop-color="#D8D8D8" stop-opacity="0"></stop></linearGradient></defs><g fill-rule="evenodd"><path fill="url(#a)" d="M16 44l24-10.564C39.443 19.146 34.889 12 26.336 12 17.784 12 14.34 22.667 16 44z"></path><path d="M3.133 25.512L16 44l12.867-18.488h-.022A15.905 15.905 0 0 0 32 16c0-8.837-7.163-16-16-16S0 7.163 0 16c0 3.568 1.182 6.851 3.155 9.512h-.022z"></path><path fill="#FFF" d="M30 16c0-7.732-6.268-14-14-14S2 8.268 2 16s6.268 14 14 14 14-6.268 14-14"></path><path fill-rule="nonzero" d="M22.827 16.023h-1.063v6.3a.674.674 0 0 1-.67.677h-2.778a.674.674 0 0 1-.669-.677v-2.517a1.44 1.44 0 0 0-.411-1.006A1.378 1.378 0 0 0 16 18.4c-.669.122-1.15.747-1.15 1.441v2.222c0 .607-.308.92-.668.92h-2.778a.674.674 0 0 1-.67-.677v-6.283H9.673c-.6 0-.892-.73-.48-1.163l6.586-6.665a.667.667 0 0 1 .943 0l6.586 6.665a.682.682 0 0 1-.48 1.163z"></path></g></svg></div></div><div class="map-mark" data-dot-data="{ &quot;category&quot;: &quot;Občanská vybavenost&quot;, &quot;action&quot;: &quot;klik z mapy&quot;, &quot;label&quot;: &quot;nemovitost&quot; }" style="width: 32px; height: 44px; position: absolute; left: -43.2217px; bottom: 10.0201px;"><div class="point-mark"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="44"><defs><linearGradient id="a" x1="22.908%" x2="64.375%" y1="100%" y2="40.513%"><stop offset="0%" stop-opacity=".481"></stop><stop offset="100%" stop-color="#D8D8D8" stop-opacity="0"></stop></linearGradient></defs><g fill-rule="evenodd"><path fill="url(#a)" d="M16 44l24-10.564C39.443 19.146 34.889 12 26.336 12 17.784 12 14.34 22.667 16 44z"></path><path d="M3.133 25.512L16 44l12.867-18.488h-.022A15.905 15.905 0 0 0 32 16c0-8.837-7.163-16-16-16S0 7.163 0 16c0 3.568 1.182 6.851 3.155 9.512h-.022z"></path><path fill="#FFF" d="M30 16c0-7.732-6.268-14-14-14S2 8.268 2 16s6.268 14 14 14 14-6.268 14-14"></path><path fill-rule="nonzero" d="M22.827 16.023h-1.063v6.3a.674.674 0 0 1-.67.677h-2.778a.674.674 0 0 1-.669-.677v-2.517a1.44 1.44 0 0 0-.411-1.006A1.378 1.378 0 0 0 16 18.4c-.669.122-1.15.747-1.15 1.441v2.222c0 .607-.308.92-.668.92h-2.778a.674.674 0 0 1-.67-.677v-6.283H9.673c-.6 0-.892-.73-.48-1.163l6.586-6.665a.667.667 0 0 1 .943 0l6.586 6.665a.682.682 0 0 1-.48 1.163z"></path></g></svg></div></div><div class="map-mark" data-dot-data="{ &quot;category&quot;: &quot;Občanská vybavenost&quot;, &quot;action&quot;: &quot;klik z mapy&quot;, &quot;label&quot;: &quot;nemovitost&quot; }" style="width: 32px; height: 44px; position: absolute; left: -71.7398px; bottom: 8.83216px;"><div class="point-mark"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="44"><defs><linearGradient id="a" x1="22.908%" x2="64.375%" y1="100%" y2="40.513%"><stop offset="0%" stop-opacity=".481"></stop><stop offset="100%" stop-color="#D8D8D8" stop-opacity="0"></stop></linearGradient></defs><g fill-rule="evenodd"><path fill="url(#a)" d="M16 44l24-10.564C39.443 19.146 34.889 12 26.336 12 17.784 12 14.34 22.667 16 44z"></path><path d="M3.133 25.512L16 44l12.867-18.488h-.022A15.905 15.905 0 0 0 32 16c0-8.837-7.163-16-16-16S0 7.163 0 16c0 3.568 1.182 6.851 3.155 9.512h-.022z"></path><path fill="#FFF" d="M30 16c0-7.732-6.268-14-14-14S2 8.268 2 16s6.268 14 14 14 14-6.268 14-14"></path><path fill-rule="nonzero" d="M22.827 16.023h-1.063v6.3a.674.674 0 0 1-.67.677h-2.778a.674.674 0 0 1-.669-.677v-2.517a1.44 1.44 0 0 0-.411-1.006A1.378 1.378 0 0 0 16 18.4c-.669.122-1.15.747-1.15 1.441v2.222c0 .607-.308.92-.668.92h-2.778a.674.674 0 0 1-.67-.677v-6.283H9.673c-.6 0-.892-.73-.48-1.163l6.586-6.665a.667.667 0 0 1 .943 0l6.586 6.665a.682.682 0 0 1-.48 1.163z"></path></g></svg></div></div><div class="map-mark" data-dot-data="{ &quot;category&quot;: &quot;Občanská vybavenost&quot;, &quot;action&quot;: &quot;klik z mapy&quot;, &quot;label&quot;: &quot;nemovitost&quot; }" style="width: 32px; height: 44px; position: absolute; left: -37.2337px; bottom: 8.20384px;"><div class="point-mark"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="44"><defs><linearGradient id="a" x1="22.908%" x2="64.375%" y1="100%" y2="40.513%"><stop offset="0%" stop-opacity=".481"></stop><stop offset="100%" stop-color="#D8D8D8" stop-opacity="0"></stop></linearGradient></defs><g fill-rule="evenodd"><path fill="url(#a)" d="M16 44l24-10.564C39.443 19.146 34.889 12 26.336 12 17.784 12 14.34 22.667 16 44z"></path><path d="M3.133 25.512L16 44l12.867-18.488h-.022A15.905 15.905 0 0 0 32 16c0-8.837-7.163-16-16-16S0 7.163 0 16c0 3.568 1.182 6.851 3.155 9.512h-.022z"></path><path fill="#FFF" d="M30 16c0-7.732-6.268-14-14-14S2 8.268 2 16s6.268 14 14 14 14-6.268 14-14"></path><text x="16" y="20" text-anchor="middle" style="font-size:12px;">7111</text></g></svg></div></div><div class="map-mark" data-dot-data="{ &quot;category&quot;: &quot;Občanská vybavenost&quot;, &quot;action&quot;: &quot;klik z mapy&quot;, &quot;label&quot;: &quot;nemovitost&quot; }" style="width: 32px; height: 44px; position: absolute; left: 20.9214px; bottom: -10.5104px;"><div class="point-mark"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="44"><defs><linearGradient id="a" x1="22.908%" x2="64.375%" y1="100%" y2="40.513%"><stop offset="0%" stop-opacity=".481"></stop><stop offset="100%" stop-color="#D8D8D8" stop-opacity="0"></stop></linearGradient></defs><g fill-rule="evenodd"><path fill="url(#a)" d="M16 44l24-10.564C39.443 19.146 34.889 12 26.336 12 17.784 12 14.34 22.667 16 44z"></path><path d="M3.133 25.512L16 44l12.867-18.488h-.022A15.905 15.905 0 0 0 32 16c0-8.837-7.163-16-16-16S0 7.163 0 16c0 3.568 1.182 6.851 3.155 9.512h-.022z"></path><path fill="#FFF" d="M30 16c0-7.732-6.268-14-14-14S2 8.268 2 16s6.268 14 14 14 14-6.268 14-14"></path><text x="16" y="20" text-anchor="middle" style="font-size:12px;">2778</text></g></svg></div></div><div class="map-mark" data-dot-data="{ &quot;category&quot;: &quot;Občanská vybavenost&quot;, &quot;action&quot;: &quot;klik z mapy&quot;, &quot;label&quot;: &quot;nemovitost&quot; }" style="width: 32px; height: 44px; position: absolute; left: -68.4851px; bottom: 10.0075px;"><div class="point-mark"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="44"><defs><linearGradient id="a" x1="22.908%" x2="64.375%" y1="100%" y2="40.513%"><stop offset="0%" stop-opacity=".481"></stop><stop offset="100%" stop-color="#D8D8D8" stop-opacity="0"></stop></linearGradient></defs><g fill-rule="evenodd"><path fill="url(#a)" d="M16 44l24-10.564C39.443 19.146 34.889 12 26.336 12 17.784 12 14.34 22.667 16 44z"></path><path d="M3.133 25.512L16 44l12.867-18.488h-.022A15.905 15.905 0 0 0 32 16c0-8.837-7.163-16-16-16S0 7.163 0 16c0 3.568 1.182 6.851 3.155 9.512h-.022z"></path><path fill="#FFF" d="M30 16c0-7.732-6.268-14-14-14S2 8.268 2 16s6.268 14 14 14 14-6.268 14-14"></path><text x="16" y="20" text-anchor="middle" style="font-size:12px;">1963</text></g></svg></div></div></div><div id="0.5812685127727386-3" style="transform: none;"></div><div id="0.2778641728164899-3" style="transform: none;"></div></div><div><div id="0.14831070498181997-4"></div><div id="0.5812685127727386-4"></div><div id="0.2778641728164899-4"></div></div></div><div class="hud"><div class="noprint"><div class="copyright print" style="position: absolute; inset: auto auto 3px 5px; margin-bottom: 0px;" title=" Seznam.cz, a.s., 2023 |  OpenStreetMap |  NASA">© <a href="https://o.seznam.cz" target="_blank" rel="noopener">Seznam.cz, a.s.</a>, 2023 a <a href="#" data-others="1">další</a></div><a class="print" target="_blank" href="https://mapy.cz/?x=15.525764&amp;y=49.802004&amp;z=5" style="position: absolute; inset: auto 0px 0px auto;"><img src="https://api.mapy.cz/img/api/logo.svg" alt="Zobrazit na Mapy.cz" style="margin-bottom: 0px;"></a><div class="selection" style="border-width: 2px; visibility: hidden; position: absolute;"></div><div class="zoom" style="position: absolute; inset: 1rem 1rem auto auto; margin-top: 0px;"><div class="button-group"><button class="minus" type="button" aria-label="Oddálit" title="Oddálit">-</button><button class="plus" type="button" aria-label="Přiblížit" title="Přiblížit">+</button></div></div><div class="layer-switch" style="position: absolute; inset: 1rem auto auto 1rem; margin-top: 0px;"><button type="button"><span>Změnit mapu</span></button><div class="window" style="display: none;"><div class="port" style="position: relative; overflow: hidden; width: 195px;"><div style="position: relative; width: 195px; left: 0px;"><div class="item active" style="width: 65px; overflow: hidden;"><div><img src="https://api.mapy.cz/img/api/preview-zakladni.png" alt="Obecná" title="Obecná"><div class="border"></div></div><p>Obecná</p></div><div class="item" style="width: 65px; overflow: hidden;"><div><img src="https://api.mapy.cz/img/api/preview-letecka.png" alt="Letecká" title="Letecká"><div class="border"></div></div><p>Letecká</p></div><div class="item" style="width: 65px; overflow: hidden;"><div><img src="https://api.mapy.cz/img/api/preview-turisticka.png" alt="Turistická" title="Turistická"><div class="border"></div></div><p>Turistická</p></div></div></div><div class="left"><div class="arrow" style="display: none;"></div></div><div class="right"><div class="arrow" style="display: none;"></div></div></div></div></div></div></div>
+
+<div class="map-opener">
+    <!-- ngIf: pageLayout.map.show --><button class="nipple ng-scope" ng-if="pageLayout.map.show" ng-click="toggleMap(1)" ng-class="{bigmap: pageLayout.map.big}" data-dot-data="{&quot;action&quot;:&quot;zvetseni_mapy&quot;}">
+        <span class="icof"></span>
+        <span class="text ng-binding">Zvětšit mapu</span>
+    </button><!-- end ngIf: pageLayout.map.show -->
+</div>
+<div class="map-shade"></div>
+</div>
+<!-- ngInclude: respData.template --><div class="submap-title submap-list" ng-class="{bigmap: pageLayout.map.big}" ng-click="toggleMap(1)" ng-include="respData.template"><div class="two-lines ng-binding ng-scope">Byty na prodej</div>
+</div>
+</div>
+
+
+<iframe src="https://h.seznam.cz/html/cmp.html?v=2.317.0" style="border: 0px; display: none;"></iframe></body></html>
