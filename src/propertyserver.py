@@ -11,7 +11,7 @@ myconn,mycursor = propertydb.get_postgres_connection()
 propertydb.initialize_db()
 
 # 1.b either fill db from local data
-#propertydb.filldemodata()
+propertydb.filldemodata()
 
 propertydb.close_postgres_connection()
 
@@ -21,9 +21,10 @@ from scrapy.utils.project import get_project_settings
 from propertyspider import PropertySpider
 settings = get_project_settings()
 settings.set('ITEM_PIPELINES', {'propertypipeline.PostgresPipeline': 300,})
-process = CrawlerProcess(settings)
-process.crawl(PropertySpider)
-process.start()
+
+#process = CrawlerProcess(settings)
+#process.crawl(PropertySpider)
+#process.start()
 
 
 #2 execute fast api server to provide access to scrapped data via REST api and static frontend UI

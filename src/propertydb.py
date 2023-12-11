@@ -86,4 +86,4 @@ def filldemodata():
 
     # Commit and close the connection
     scdbconn.commit()        
-    print("Data inserted successfully.")
+    print("Demo data inserted successfully.")
