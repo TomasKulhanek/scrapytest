@@ -12,4 +12,16 @@
 
 other `py` and other files - testing scripts produced during incremental development
 
+# to run in docker
+
+  * `docker-compose up` - this should start DB and FAST API server (propertyserver.py) in docker instance
+
+# to run locally
+
+1. start postgresql:  `src/runpostgres.sh` which starts docker image of postgres on port 5432
+2. start propertyserver: `src/propertyserver.sh`
+
+# note
+
+After each start - sreality server is scrapped for 500 new properties, do not run it too much time in order not to be blocked/banned.
 
