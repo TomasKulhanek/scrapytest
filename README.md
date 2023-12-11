@@ -1,8 +1,8 @@
 # Scrapytest
 
-`src\` contains backend scripts and static frontend served by the fast api
-`frontend\` contains source code of webcomponent used to create simple frontend (aurelia framework used, but transpiled to framework agnostic webcomponents)
-`test\` other files used for testing scripts during incremental development
+  * `src\` contains backend scripts and static frontend served by the fast api
+  * `frontend\` contains source code of webcomponent used to create simple frontend (aurelia framework used, but transpiled to framework agnostic webcomponents)
+  * `test\` other files used for testing scripts during incremental development
 
 `propertyserver.sh`
  to run main server at propertyserver.py
