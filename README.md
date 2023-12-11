@@ -1,10 +1,10 @@
 # Scrapytest
 
-  * `src\` contains backend scripts and static frontend served by the fast api
-  * `frontend\` contains source code of webcomponent used to create simple frontend (aurelia framework used, but transpiled to framework agnostic webcomponents)
-  * `test\` other files used for testing scripts during incremental development
+  * `src/` contains backend scripts and static frontend served by the fast api
+  * `frontend/` contains source code of webcomponent used to create simple frontend (aurelia framework used, but transpiled to framework agnostic webcomponents)
+  * `test/` other files used for testing scripts during incremental development
 
-`propertyserver.sh`
+`src/propertyserver.sh`
  to run main server at propertyserver.py
 
 1. it uses scrapy to get items from sreality server, obey robots.txt
@@ -12,7 +12,7 @@
 3. it starts HTTP server (fast-api) use DB (postgresql) to get data
 4. frontend with basic list of items in DB at localhost:8000/static/index.html
 
-`propertydb.py`
+`src/propertydb.py`
 Shared DB connection and cursor functions
 
 functions:
@@ -20,11 +20,11 @@ functions:
   *  initialize_db(): create table 'property_listing' and delete all data if it is there from previous run
   *  close_postgres_connection(): close the shared connection and cursor, call it once at the end off session
 
-`propertypipeline.py`
+`src/propertypipeline.py`
 Pipeline for SCRAPY framework
 stores processed property into shared DB
 
-`propertyspider.py`
+`src/propertyspider.py`
 Spider of SCRAPY framework, gets properties from external URL and extract only data that is relevant for our app
 
 `frontend/src/sc/propertylist.*`
