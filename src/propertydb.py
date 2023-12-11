@@ -6,33 +6,69 @@ functions:
     close_postgres_connection(): close the shared connection and cursor, call it once at the end off session
 """
 import psycopg2
+import time
 scdbconn = None
 scdbcursor = None
+  
+db_params_local = {
+    'dbname': 'postgres',
+    'user': 'postgres',
+    'password': 'vagrant',
+    'host': 'localhost',
+    'port': 5432           # the port mapped in runpostgres.sh script
+}
+db_params_docker = {
+    'dbname': 'postgres',
+    'user': 'postgres',
+    'password': 'vagrant',
+    'host': 'db',
+    'port': 5432           # the port mapped in runpostgres.sh script
+}
+db_params = db_params_local
 
 def get_postgres_connection():
     global scdbconn,scdbcursor
+    global db_params
     # return if already initialized
     if (scdbconn is not None):
         return scdbconn, scdbcursor
-    # Define your connection parameters
-    db_params = {
-        'dbname': 'postgres',
-        'user': 'postgres',
-        'password': 'vagrant',
-        'host': 'localhost',
-        'port': 5432           # the port mapped in runpostgres.sh script
-    }
-    try:
-        # Establish a connection to the database
-        scdbconn = psycopg2.connect(**db_params)
-        # Create a cursor object
-        scdbcursor = scdbconn.cursor()
-        # now create table - delete all previous data
 
-        return scdbconn, scdbcursor
-    except Exception as e:
-        print(f"Database connection failed: {e}")
-        return None, None
+    # try 2 to connect to localhost database
+    max_attempts = 12
+    attempt = 0
+    wait_time = 5  # seconds
+    while attempt < max_attempts:
+        try:
+            # Establish a connection to the database
+            scdbconn = psycopg2.connect(**db_params)
+            # Create a cursor object
+            scdbcursor = scdbconn.cursor()            
+            print("DB connection established.")
+            return scdbconn, scdbcursor
+        except Exception as e:
+            attempt += 1
+            print(f"Connection to local DB attempt {attempt} failed. Retrying in {wait_time} seconds...")
+            if attempt >1: 
+                db_params = db_params_docker
+                print("Switch to docker compose DB")
+            time.sleep(wait_time)
+    # try 6 times to connect to docker composed database
+    max_attempts = 6
+    attempt = 0
+    wait_time = 10  # seconds
+    while attempt < max_attempts:
+        try:
+            # Establish a connection to the database
+            scdbconn = psycopg2.connect(**db_params_docker)
+            # Create a cursor object
+            scdbcursor = scdbconn.cursor()            
+            print("DB connection established.")
+            return scdbconn, scdbcursor
+        except Exception as e:
+            attempt += 1
+            print(f"Connection to local DB attempt {attempt} failed. Retrying in {wait_time} seconds...")
+            time.sleep(wait_time)
+    return None, None
 
 def initialize_db():
     global scdbconn,scdbcursor
