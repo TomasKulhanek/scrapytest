@@ -10,14 +10,7 @@
   "dependencies": {
     "@babel/runtime": "^7.21.0",
     "aurelia-bootstrapper": "^2.4.0",
-    "aurelia-fetch-client": "^1.8.2",
-    "aurelia-i18n": "^4.0.4",
-    "aurelia-web-components": "github:TomasKulhanek/web-components#master",
-    "localforage": "^1.10.0",
-    "url-loader": "^4.1.1",
-    "i18next": "^22.4.11",
-    "i18next-resource-store-loader": "^0.1.2",
-    "i18next-xhr-backend": "^3.2.2"
+    "aurelia-web-components": "github:TomasKulhanek/web-components#master"
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",

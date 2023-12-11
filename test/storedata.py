@@ -29,7 +29,6 @@ db_params = {
 # Connect to the database
 conn = psycopg2.connect(**db_params)
 cursor = conn.cursor()
-
 # Create a new table
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS property_listings (
@@ -40,7 +39,10 @@ cursor.execute('''
     );
 ''')
 conn.commit()
-
+# delete all previous data
+query = "DELETE FROM property_listings;"
+cursor.execute(query)
+conn.commit()
 
 # Insert data into the table
 for flat in generate_items(data):
@@ -49,9 +51,8 @@ for flat in generate_items(data):
         INSERT INTO property_listings (title, image, url) VALUES (%s, %s, %s)
     ''', (flat['title'], flat['image'], flat['url']))
 
-# Commit changes and close the connection
+# Commit and close the connection
 conn.commit()
 cursor.close()
 conn.close()
-
 print("Data inserted successfully.")
